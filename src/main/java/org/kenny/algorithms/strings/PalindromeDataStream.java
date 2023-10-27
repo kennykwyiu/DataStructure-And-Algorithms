@@ -1,6 +1,9 @@
 package org.kenny.algorithms.strings;
 
 public class PalindromeDataStream {
+
+    // time complexity: O(N)
+    // space complexity: O(N)
     public int[] getStream(String s) {
         if (s == null || s.length() == 0) {
             return null;
