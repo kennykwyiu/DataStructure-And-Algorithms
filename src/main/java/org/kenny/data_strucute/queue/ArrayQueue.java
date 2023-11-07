@@ -1,6 +1,7 @@
 package org.kenny.data_strucute.queue;
 
 import java.util.Arrays;
+import java.util.EmptyStackException;
 
 public class ArrayQueue {
     private int[] items;
@@ -16,12 +17,15 @@ public class ArrayQueue {
         if (count == items.length)
             throw new IllegalStateException();
 
-        items[rear++] = item;
+        items[rear] = item;
         rear = (rear + 1) % items.length;
         count++;
     }
 
     public int dequeue() {
+        if (count == 0) {
+            throw new IllegalStateException();
+        }
         int item = items[front];
         items[front] = 0;
         front = (front + 1) % items.length;
