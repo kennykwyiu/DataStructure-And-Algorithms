@@ -1,7 +1,7 @@
 package org.kenny.data_strucute.linked_list;
 
 public class RemoveLinkedListElements {
-
+    // Time complexity: O(n), Space complexity: O(1)
     public ListNode removeLinkedListElements(ListNode head, int val) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
