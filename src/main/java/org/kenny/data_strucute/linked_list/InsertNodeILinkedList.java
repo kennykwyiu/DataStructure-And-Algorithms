@@ -2,6 +2,7 @@ package org.kenny.data_strucute.linked_list;
 
 public class InsertNodeILinkedList {
 
+    // Time complexity: O(n)
     public ListNode insertNodeILinkedList(ListNode head, int val) {
         ListNode dummy = new ListNode(Integer.MIN_VALUE);
         dummy.next = head;
