@@ -1,4 +1,4 @@
-package org.kenny.algorithms.strings;
+package org.kenny.algorithms;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,10 +11,6 @@ import java.util.Stack;
 
 public class Braces {
     static String isBalanced(String s) {
-        if (s.length() % 2 != 0) {
-            return "NO";
-        }
-
         Stack<Character> stack = new Stack<>();
         Map<Character, Character> bracesMap = new HashMap<>();
         bracesMap.put('}', '{');
