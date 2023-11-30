@@ -1,8 +1,10 @@
-package org.kenny.data_strucute.linked_list;
+package org.kenny.algorithms.linkedlist;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.kenny.algorithms.linkedlist.ListNode;
+import org.kenny.algorithms.linkedlist.RemoveLinkedListElements;
 
 public class RemoveLinkedListElementsTest {
 

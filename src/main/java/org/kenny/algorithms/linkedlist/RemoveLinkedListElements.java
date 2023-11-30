@@ -1,4 +1,4 @@
-package org.kenny.data_strucute.linked_list;
+package org.kenny.algorithms.linkedlist;
 
 public class RemoveLinkedListElements {
     // Time complexity: O(n), Space complexity: O(1)

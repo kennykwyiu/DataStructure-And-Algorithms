@@ -1,6 +1,4 @@
-package org.kenny.data_strucute.linked_list;
-
-import java.util.List;
+package org.kenny.algorithms.linkedlist;
 
 /**
  * Find the middle node of a linked list
