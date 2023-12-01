@@ -1,18 +1,28 @@
 package org.kenny.data_strucute.stack_custom;
 
-import java.util.EmptyStackException;
+import java.util.NoSuchElementException;
 
 public class MyStack<T> implements StackInterface<T> {
     private StackNode<T> top;
 
     @Override
     public T pop() {
-        if (top == null) {
-            throw new EmptyStackException();
+        if (isEmpty()) {
+            throw new NoSuchElementException();
         }
         final T item = top.getData();
         top = top.getNext();
         return item;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return top == null;
+    }
+
+    @Override
+    public void clear() {
+        top = null;
     }
 
     @Override
@@ -24,8 +34,8 @@ public class MyStack<T> implements StackInterface<T> {
 
     @Override
     public T peak() {
-        if (top == null) {
-            throw new EmptyStackException();
+        if (isEmpty()) {
+            throw new NoSuchElementException();
         }
         return top.getData();
     }

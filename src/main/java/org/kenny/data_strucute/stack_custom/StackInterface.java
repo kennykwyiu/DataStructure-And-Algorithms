@@ -6,4 +6,8 @@ public interface StackInterface<T> {
     void push(T item);
 
     T peak();
+
+    boolean isEmpty();
+
+    void clear();
 }
