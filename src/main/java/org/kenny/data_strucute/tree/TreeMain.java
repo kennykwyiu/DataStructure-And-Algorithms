@@ -1,10 +1,6 @@
 package org.kenny.data_strucute.tree;
 
 public class TreeMain {
-    public static void main(String[] args) {
-        TreeNode root = buildTree();
-        traverseTree(root);
-    }
     public static TreeNode buildTree() {
         TreeNode root = new TreeNode(8);
         TreeNode node2 = new TreeNode(3);
@@ -24,15 +20,6 @@ public class TreeMain {
         node5.right = node8;
         node6.left = node9;
         return root;
-    }
-
-    public static void traverseTree(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        System.out.print(root.value + " ");
-        traverseTree(root.left);
-        traverseTree(root.right);
     }
 
 
