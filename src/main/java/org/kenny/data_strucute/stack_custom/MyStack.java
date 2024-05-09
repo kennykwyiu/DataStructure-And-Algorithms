@@ -2,6 +2,7 @@ package org.kenny.data_strucute.stack_custom;
 
 import java.util.NoSuchElementException;
 
+
 public class MyStack<T> implements StackInterface<T> {
     private StackNode<T> top;
 

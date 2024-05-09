@@ -10,7 +10,7 @@ public class MyQueue {
 
     public void offer(int value) {
         if (tail == null) {
-            head = tail = new Node<>(value);
+            head = tail = new Node<>(value); 
         } else {
             tail.next = new Node<>(value);
             tail = tail.next;
