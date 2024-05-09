@@ -1,6 +1,6 @@
 package org.kenny.data_strucute.stack_custom;
 
-public class OneStackAsQueue<E> implements Queue<E> {
+public class OneStackAsQueue<E> implements MyCustomQueue<E> {
     private final MyStack<E> stack;
 
     public OneStackAsQueue(MyStack<E> stack) {
@@ -16,6 +16,15 @@ public class OneStackAsQueue<E> implements Queue<E> {
 
     @Override
     public E poll() {
-
+        if (stack.isEmpty()) {
+            return null;
+        }
+        E removedData = stack.pop();
+        if (!stack.isEmpty()) {
+            E removeAgainData = poll();
+            stack.push(removeAgainData);
+            return removeAgainData;
+        }
+        return removedData;
     }
 }
