@@ -3,10 +3,9 @@ package org.kenny.data_strucute.stack_custom;
 public class OneStackAsQueue<E> implements MyCustomQueue<E> {
     private final MyStack<E> stack;
 
-    public OneStackAsQueue(MyStack<E> stack) {
-        this.stack = stack;
+    public OneStackAsQueue() {
+        this.stack = new MyStack<>();
     }
-
 
     @Override
     public boolean offer(E e) {
