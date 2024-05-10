@@ -54,4 +54,8 @@ public class ArrayListCustom {
     public int getSize() {
         return count;
     }
+
+    public int getItemCapacity() {
+        return items.length;
+    }
 }
