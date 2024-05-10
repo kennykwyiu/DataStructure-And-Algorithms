@@ -50,4 +50,8 @@ public class ArrayListCustom {
             System.out.println(items[i]);
         }
     }
+
+    public int getSize() {
+        return count;
+    }
 }
