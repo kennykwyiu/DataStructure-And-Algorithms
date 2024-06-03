@@ -19,7 +19,7 @@ public class BalancedBrackets {
         Stack<Character> stack = new Stack<>();
         for (char c : s.toCharArray()) {
             if (c == '(' || c == '{' || c == '[') {
-                stack.push(c);
+                stack.push(Character.valueOf(c));
             } else {
                 if (stack.isEmpty()) {
                     return "NO";
@@ -31,10 +31,10 @@ public class BalancedBrackets {
 
             }
         }
-            return stack.isEmpty() ? "YES" : "NO";
+        return stack.isEmpty() ? "YES" : "NO";
     }
 
-    class Solution {
+    static class Solution {
         public static void main(String[] args) throws IOException {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
@@ -58,4 +58,5 @@ public class BalancedBrackets {
             bufferedWriter.close();
         }
     }
+}
 
