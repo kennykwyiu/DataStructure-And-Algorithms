@@ -3,6 +3,7 @@ package org.kenny.algorithms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Stack;
 
 /*
 Problem:
@@ -64,7 +65,38 @@ public class SimpleTextEditor {
     }
 
     private static String performOperations(List<String> operations) {
-        return null;
+        StringBuilder curString = new StringBuilder();
+        Stack<String> undoStack = new Stack<>();
+
+        for (String operation : operations) {
+            String[] parts = operation.split(" ");
+            int inputType = Integer.parseInt(parts[0]);
+
+            switch (inputType) {
+                case 1:
+                    undoStack.push(curString.toString());
+                    curString.append(parts[1]);
+                    break;
+
+                case 2:
+                    undoStack.push(curString.toString());
+                    int k = Integer.parseInt(parts[1]);
+                    curString.setLength(curString.length() - k);
+                    break;
+
+                case 3:
+                    int index = Integer.parseInt(parts[1]) - 1;
+                    System.out.println(curString.charAt(index));
+                    break;
+
+                case 4:
+                    if (!undoStack.isEmpty()) {
+                        curString = new StringBuilder(undoStack.pop());
+                    }
+                    break;
+            }
+        }
+        return curString.toString();
     }
 
 
