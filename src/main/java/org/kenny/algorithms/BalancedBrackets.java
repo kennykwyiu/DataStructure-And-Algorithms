@@ -28,7 +28,6 @@ public class BalancedBrackets {
                 if ((c == ')' && top != '(') || (c == '}' && top != '{') || (c == ']' && top != '[')) {
                     return "NO";
                 }
-
             }
         }
         return stack.isEmpty() ? "YES" : "NO";
