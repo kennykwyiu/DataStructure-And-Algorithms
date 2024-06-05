@@ -59,7 +59,6 @@ public class SimpleTextEditor {
         }
 
         String result = performOperations(operations);
-        System.out.println(result);
 
         scanner.close();
     }
