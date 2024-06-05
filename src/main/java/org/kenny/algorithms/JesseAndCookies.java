@@ -1,5 +1,7 @@
 package org.kenny.algorithms;
 
+import java.util.List;
+
 /**
  *
  * Problem:
@@ -38,4 +40,9 @@ package org.kenny.algorithms;
  *
  */
 public class JesseAndCookies {
+    public static int cookies(int k, List<Integer> A ) {
+
+
+        return Integer.parseInt(null);
+    }
 }
