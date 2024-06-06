@@ -46,8 +46,6 @@ public class NoPrefixSet {
             }
         }
         System.out.println("GOOD SET");
-
-
     }
 
     public static boolean insert(TrieNode root, String word) {
@@ -74,6 +72,10 @@ public class NoPrefixSet {
         return true;
     }
 
+    public static void main(String[] args) {
+        String[] arr = {"abc", "def", "ab", "abcd"};
+        noPrefix(List.of(arr));
+    }
 }
 
 class TrieNode {
