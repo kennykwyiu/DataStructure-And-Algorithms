@@ -16,7 +16,9 @@ public class LinearSearch {
                 new Student("Charles")};
         Student bobo = new Student("Bobo");
         Student charles = new Student("Charles");
+        Student sam = new Student("Sam");
         System.out.println(search(students, bobo));
         System.out.println(search(students, charles));
+        System.out.println(search(students, sam));
     }
 }
