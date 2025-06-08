@@ -4,9 +4,9 @@ public class LinearSearch {
 
     private LinearSearch() {}
 
-    public static int linearSearch(int[] arr, int key) {
+    public static int search(int[] arr, int target) {
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == key) {
+            if (arr[i] == target) {
                 return i;
             }
         }
@@ -15,8 +15,8 @@ public class LinearSearch {
 
     public static void main(String[] args) {
         int[] arr = new int[]{1, 3, 5, 7, 8, 9, 10};
-        System.out.println(linearSearch(arr, 10));
+        System.out.println(LinearSearch.search(arr, 10));
 
-        System.out.println(linearSearch(arr, 11));
+        System.out.println(LinearSearch.search(arr, 11));
     }
 }
