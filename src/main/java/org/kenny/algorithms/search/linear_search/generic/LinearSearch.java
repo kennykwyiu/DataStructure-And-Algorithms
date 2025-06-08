@@ -1,4 +1,4 @@
-package org.kenny.algorithms.search.generic.linear_search;
+package org.kenny.algorithms.search.linear_search.generic;
 
 public class LinearSearch {
 
