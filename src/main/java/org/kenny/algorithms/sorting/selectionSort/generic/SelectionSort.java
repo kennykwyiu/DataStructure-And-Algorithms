@@ -5,7 +5,7 @@ public class SelectionSort {
     public static <E extends Comparable<E>> void sort(E[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int minIndex = i;
-            for (int j = i + 1; j < arr.length; j++) {
+            for (int j = i ; j < arr.length; j++) {
                 if (arr[j].compareTo(arr[minIndex]) < 0) {
                     minIndex = j;
                 }
@@ -23,10 +23,24 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        Integer[] arr = new Integer[]{6, 4, 2, 5, 8, 1, 3, 7};
-        SelectionSort.sort(arr);
-        for (int i : arr) {
-            System.out.print(i + " ");
+//        Integer[] arr = new Integer[]{6, 4, 2, 5, 8, 1, 3, 7};
+//        SelectionSort.sort(arr);
+//        for (int i : arr) {
+//            System.out.print(i + " ");
+//        }
+
+        int n = 10000;
+        Integer[] array = ArrayGenerator.generateRandomArray(n, n);
+
+        long startTime = System.nanoTime();
+        SelectionSort.sort(array);
+        long endTime = System.nanoTime();
+        double time = (endTime - startTime) / 1000000000.0;
+
+        if (!SortingHelper.isSorted(array)) {
+            throw new RuntimeException("Sorted array is not sorted");
         }
+        System.out.println(time + " s");
+
     }
 }
