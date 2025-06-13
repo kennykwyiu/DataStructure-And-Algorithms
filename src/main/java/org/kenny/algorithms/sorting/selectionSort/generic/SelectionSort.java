@@ -32,15 +32,26 @@ public class SelectionSort {
         int n = 10000;
         Integer[] array = ArrayGenerator.generateRandomArray(n, n);
 
-        long startTime = System.nanoTime();
-        SelectionSort.sort(array);
-        long endTime = System.nanoTime();
-        double time = (endTime - startTime) / 1000000000.0;
+//        long startTime = System.nanoTime();
+//        SelectionSort.sort(array);
+//        long endTime = System.nanoTime();
+//        double time = (endTime - startTime) / 1000000000.0;
+//
+//        if (!SortingHelper.isSorted(array)) {
+//            throw new RuntimeException("Sorted array is not sorted");
+//        }
+//        System.out.println(time + " s");
 
-        if (!SortingHelper.isSorted(array)) {
-            throw new RuntimeException("Sorted array is not sorted");
+        /**
+         *
+         */
+        SortingHelper.sortTest("SelectionSort", array);
+
+        int[] dataSize = {10000, 100000};
+        for (int i : dataSize) {
+            Integer[] randomArray = ArrayGenerator.generateRandomArray(i, i);
+            SortingHelper.sortTest("SelectionSort", randomArray);
         }
-        System.out.println(time + " s");
 
     }
 }
