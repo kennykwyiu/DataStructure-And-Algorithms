@@ -54,6 +54,13 @@ public class Array {
         return data[index];
     }
 
+    public void set(int index, int e) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Set failed. Require index >=0 and index < size.");
+        }
+        data[index] = e;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
