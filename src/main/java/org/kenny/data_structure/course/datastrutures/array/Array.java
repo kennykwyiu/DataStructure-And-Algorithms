@@ -91,6 +91,10 @@ public class Array {
         return ret;
     }
 
+    public int removeFirst() {
+        return remove(0);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
