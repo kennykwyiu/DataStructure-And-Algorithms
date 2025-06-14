@@ -47,6 +47,13 @@ public class Array {
         size++;
     }
 
+    public int get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Get failed. Require index >=0 and index < size.");
+        }
+        return data[index];
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
