@@ -30,7 +30,7 @@ public class Array {
     }
 
     public void addFirst(int e) {
-        add(size, e);
+        add(0, e);
     }
 
     public void add(int index, int e) {
