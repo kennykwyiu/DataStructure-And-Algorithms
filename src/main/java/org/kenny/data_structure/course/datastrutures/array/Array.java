@@ -29,6 +29,10 @@ public class Array {
         add(size, e);
     }
 
+    public void addFirst(int e) {
+        add(size, e);
+    }
+
     public void add(int index, int e) {
         if (size == data.length) {
             throw new IllegalArgumentException("Add failed. Array is full.");
