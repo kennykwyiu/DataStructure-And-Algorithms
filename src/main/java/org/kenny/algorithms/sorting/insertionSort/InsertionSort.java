@@ -25,6 +25,16 @@ public class InsertionSort {
         }
     }
 
+    public static <T extends Comparable<T>> void optimizedSort(T[] array) {
+        for (int i = 0; i < array.length; i++) {
+            T temp = array[i];
+            int j;
+            for (j = i; j - 1 >= 0 && temp.compareTo(array[j - 1]) < 0; j--) {
+                array[j] = array[j - 1];
+            }
+            array[j] = temp;
+        }
+    }
 
     private static <E> void swap(E[] arr, int i, int j) {
         if (i != j) {
