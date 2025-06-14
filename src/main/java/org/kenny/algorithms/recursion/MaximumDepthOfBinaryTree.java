@@ -1,6 +1,6 @@
 package org.kenny.algorithms.recursion;
 
-import org.kenny.data_strucute.tree.TreeNode;
+import org.kenny.data_structure.tree.TreeNode;
 
 /**
  * Question: Given a binary tree, write a function to find its maximum depth.

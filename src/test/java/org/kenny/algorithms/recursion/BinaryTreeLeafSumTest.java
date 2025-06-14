@@ -1,6 +1,6 @@
 package org.kenny.algorithms.recursion;
 import org.junit.jupiter.api.Test;
-import org.kenny.data_strucute.tree.TreeNode;
+import org.kenny.data_structure.tree.TreeNode;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

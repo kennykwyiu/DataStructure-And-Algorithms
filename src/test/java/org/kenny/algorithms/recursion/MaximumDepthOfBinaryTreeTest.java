@@ -1,7 +1,7 @@
 package org.kenny.algorithms.recursion;
 
 import org.junit.Test;
-import org.kenny.data_strucute.tree.TreeNode;
+import org.kenny.data_structure.tree.TreeNode;
 
 import static org.junit.Assert.assertEquals;
 

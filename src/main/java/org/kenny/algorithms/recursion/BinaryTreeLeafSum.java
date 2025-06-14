@@ -1,6 +1,6 @@
 package org.kenny.algorithms.recursion;
 
-import org.kenny.data_strucute.tree.TreeNode;
+import org.kenny.data_structure.tree.TreeNode;
 
 /**
  * Here's a question related to calculating the sum of leaf nodes in a binary tree:
