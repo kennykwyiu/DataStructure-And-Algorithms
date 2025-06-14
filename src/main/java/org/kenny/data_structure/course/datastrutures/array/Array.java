@@ -24,4 +24,13 @@ public class Array {
     public boolean isEmpty() {
         return size == 0;
     }
+
+    public void addLast(int e) {
+        if (size == data.length) {
+            throw new IllegalArgumentException("AddLast failed. Array is full.");
+        }
+
+        data[size] = e;
+        size++;
+    }
 }
