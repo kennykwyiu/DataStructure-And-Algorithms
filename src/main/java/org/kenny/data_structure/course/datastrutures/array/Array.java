@@ -95,6 +95,10 @@ public class Array {
         return remove(0);
     }
 
+    public int removeLast() {
+        return remove(size - 1);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
