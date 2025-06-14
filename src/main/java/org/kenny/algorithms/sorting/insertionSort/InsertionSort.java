@@ -47,8 +47,27 @@ public class InsertionSort {
     public static void main(String[] args) {
         int[] dataSize = {10000, 100000};
         for (int i : dataSize) {
-            Integer[] randomArray = ArrayGenerator.generateRandomArray(i, i);
-            SortingHelper.sortTest("InsertionSort", randomArray);
+//            Integer[] randomArray = ArrayGenerator.generateRandomArray(i, i);
+//            Integer[] randomArray2 = Arrays.copyOf(randomArray, randomArray.length);
+//            SortingHelper.sortTest("InsertionSort", randomArray);
+//            SortingHelper.sortTest("OptimizedInsertionSort", randomArray2);
+
+            System.out.println("Random Array: ");
+
+            Integer[] array = ArrayGenerator.generateRandomArray(i, i);
+            Integer[] array2 = Arrays.copyOf(array, array.length);
+            SortingHelper.sortTest("SelectionSort", array);
+            SortingHelper.sortTest("OptimizedInsertionSort", array2);
+
+            System.out.println();
+
+            System.out.println("Ordered Array: ");
+            array = ArrayGenerator.generateOrderedArray(i);
+            array2 = Arrays.copyOf(array, array.length);
+
+            SortingHelper.sortTest("SelectionSort", array);
+            SortingHelper.sortTest("OptimizedInsertionSort", array2);
+            System.out.println();
         }
     }
 }
