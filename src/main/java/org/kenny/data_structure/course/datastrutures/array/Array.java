@@ -79,6 +79,18 @@ public class Array {
         return -1;
     }
 
+    public int remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Remove failed. Require index >=0 and index < size.");
+        }
+        int ret = data[index];
+        for (int i = index + 1; i < size; i++) {
+            data[i - 1] = data[i];
+        }
+        size--;
+        return ret;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
