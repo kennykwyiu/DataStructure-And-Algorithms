@@ -113,7 +113,7 @@ public class Array<E> {
         sb.append(String.format("Array: size = %d, capacity = %d\n", size, data.length));
         sb.append("[");
         for (int i = 0; i < size; i++) {
-            sb.append(String.format("(%d): %d", i, data[i]));
+            sb.append(data[i]);
             if (i != size - 1) {
                 sb.append(", ");
             }
