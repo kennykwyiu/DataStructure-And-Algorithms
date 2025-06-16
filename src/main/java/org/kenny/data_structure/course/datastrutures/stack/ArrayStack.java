@@ -39,4 +39,19 @@ public class ArrayStack<E> implements Stack<E> {
     public E peek() {
         return array.getLast();
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Stack: ");
+        sb.append("[");
+        for (int i = 0; i < array.getSize(); i++) {
+            sb.append(array.get(i));
+            if (i != array.getSize() - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("] top");
+        return sb.toString();
+    }
 }
