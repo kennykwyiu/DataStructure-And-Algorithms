@@ -25,14 +25,17 @@ public class DynamicArray<E> {
         return size == 0;
     }
 
+    // O(1)
     public void addLast(E e) {
         add(size, e);
     }
 
+    // O(n)
     public void addFirst(E e) {
         add(0, e);
     }
 
+    // O(n)
     public void add(int index, E e) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed. Require index >=0 and index < size.");
@@ -47,6 +50,7 @@ public class DynamicArray<E> {
         size++;
     }
 
+    // O(n)
     private void resize(int newCapacity) {
         E[] newData = (E[]) new Object[newCapacity];
         for (int i = 0; i < size; i++) {
@@ -55,6 +59,7 @@ public class DynamicArray<E> {
         data = newData;
     }
 
+    // O(1)
     public E get(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Get failed. Require index >=0 and index < size.");
@@ -62,6 +67,7 @@ public class DynamicArray<E> {
         return data[index];
     }
 
+    // O(1)
     public void set(int index, E e) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Set failed. Require index >=0 and index < size.");
@@ -69,6 +75,7 @@ public class DynamicArray<E> {
         data[index] = e;
     }
 
+    // O(n)
     public boolean contains(E e) {
         for (int i = 0; i < size; i++) {
             if (data[i].equals(e)) {
@@ -78,6 +85,7 @@ public class DynamicArray<E> {
         return false;
     }
 
+    // O(n)
     public int find(E e) {
         for (int i = 0; i < size; i++) {
             if (data[i].equals(e)) {
@@ -87,6 +95,7 @@ public class DynamicArray<E> {
         return -1;
     }
 
+    // O(n)
     public E remove(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Remove failed. Require index >=0 and index < size.");
@@ -97,16 +106,18 @@ public class DynamicArray<E> {
         }
         size--;
         data[size] = null;// loitering objects != memory leak
-        if (size == data.length / 2) {
+        if (size == data.length / 4 && data.length % 2 != 0) {
             resize(data.length / 2);
         }
         return ret;
     }
 
+    // O(n)
     public E removeFirst() {
         return remove(0);
     }
 
+    // O(1)
     public E removeLast() {
         return remove(size - 1);
     }
