@@ -15,26 +15,26 @@ public class ArrayStack<E> implements Stack {
 
     @Override
     public int getSize() {
-        return 0;
+        return array.getSize();
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return array.isEmpty();
     }
 
     @Override
-    public void push(Object o) {
-
+    public void push(E e) {
+        array.addLast(e);
     }
 
     @Override
-    public Object pop() {
-        return null;
+    public E pop() {
+        return array.removeLast();
     }
 
     @Override
-    public Object peek() {
-        return null;
+    public E peek() {
+        return array.getLast();
     }
 }
