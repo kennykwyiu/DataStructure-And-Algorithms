@@ -19,7 +19,7 @@ public class BalancedBrackets {
         Stack<Character> stack = new Stack<>();
         for (char c : s.toCharArray()) {
             if (c == '(' || c == '{' || c == '[') {
-                stack.push(Character.valueOf(c));
+                stack.push(c);
             } else {
                 if (stack.isEmpty()) {
                     return "NO";
