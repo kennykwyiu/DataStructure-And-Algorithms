@@ -11,4 +11,33 @@ public class ArrayQueue<E> implements Queue<E> {
     public ArrayQueue() {
         array = new DynamicArray<>();
     }
+
+    @Override
+    public int getSize() {
+        return array.getSize();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return array.isEmpty();
+    }
+
+    public int getCapacity() {
+        return array.getCapacity();
+    }
+
+    @Override
+    public void enqueue(E e) {
+
+    }
+
+    @Override
+    public E dequeue() {
+        return null;
+    }
+
+    @Override
+    public E peek() {
+        return null;
+    }
 }
