@@ -5,5 +5,5 @@ public interface Queue<E> {
     boolean isEmpty();
     void enqueue(E e);
     E dequeue();
-    E peek();
+    E getFront();
 }
