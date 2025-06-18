@@ -40,4 +40,21 @@ public class ArrayQueue<E> implements Queue<E> {
     public E getFront() {
         return array.getFirst();
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Queue: ");
+        sb.append("front [");
+        for (int i = 0; i < array.getSize(); i++) {
+            sb.append(array.get(i));
+            if (i != array.getSize() - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("] tail");
+        return sb.toString();
+    }
+
+
 }
