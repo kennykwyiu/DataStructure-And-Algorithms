@@ -17,7 +17,7 @@ public class LoopQueue<E> implements Queue<E> {
     }
 
     public int getCapacity() {
-        return data.length -1;
+        return data.length - 1;
     }
 
     @Override
@@ -28,5 +28,15 @@ public class LoopQueue<E> implements Queue<E> {
     @Override
     public int getSize() {
         return size;
+    }
+
+    private void resize(int newCapacity) {
+        E[] newData = (E[]) new Object[newCapacity + 1];
+        for (int i = 0; i < size; i++) {
+            newData[i] = data[(i + front) % data.length];
+        }
+        data = newData;
+        front = 0;
+        tail = size;
     }
 }
