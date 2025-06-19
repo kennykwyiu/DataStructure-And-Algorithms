@@ -12,11 +12,13 @@ public class ArrayQueue<E> implements Queue<E> {
         array = new DynamicArray<>();
     }
 
+    // O(1)
     @Override
     public int getSize() {
         return array.getSize();
     }
 
+    // O(1)
     @Override
     public boolean isEmpty() {
         return array.isEmpty();
@@ -26,16 +28,19 @@ public class ArrayQueue<E> implements Queue<E> {
         return array.getCapacity();
     }
 
+    // O(1)
     @Override
     public void enqueue(E e) {
         array.addLast(e);
     }
 
+    // O(n)
     @Override
     public E dequeue() {
         return array.removeFirst();
     }
 
+    // O(1)
     @Override
     public E getFront() {
         return array.getFirst();
