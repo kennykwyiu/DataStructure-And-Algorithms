@@ -67,4 +67,12 @@ public class LoopQueue<E> implements Queue<E> {
         }
         return ret;
     }
+
+    @Override
+    public E getFront() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Queue is empty");
+        }
+        return data[front];
+    }
 }
