@@ -30,6 +30,16 @@ public class LoopQueue<E> implements Queue<E> {
         return size;
     }
 
+    @Override
+    public void enqueue(E e) {
+        if ((tail + 1) % data.length == front) {
+            resize(getCapacity() * 2);
+        }
+        data[tail] = e;
+        tail = (tail + 1) % data.length;
+        size++;
+    }
+
     private void resize(int newCapacity) {
         E[] newData = (E[]) new Object[newCapacity + 1];
         for (int i = 0; i < size; i++) {
