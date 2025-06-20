@@ -1,5 +1,8 @@
 package org.kenny.data_structure.course.datastrutures.queue;
 
+import java.util.Arrays;
+import java.util.NoSuchElementException;
+
 public class LoopQueue<E> implements Queue<E> {
     private E[] data;
     private int front, tail;
@@ -48,5 +51,20 @@ public class LoopQueue<E> implements Queue<E> {
         data = newData;
         front = 0;
         tail = size;
+    }
+
+    @Override
+    public E dequeue() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Queue is empty");
+        }
+        E ret = data[front];
+        data[front] = null;
+        front = (front + 1) % data.length;
+        size--;
+        if (size == data.length / 4 && getCapacity() / 2 != 0) {
+            resize(data.length / 2);
+        }
+        return ret;
     }
 }
