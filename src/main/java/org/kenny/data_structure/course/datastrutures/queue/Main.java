@@ -20,4 +20,16 @@ public class Main {
         return (endTime - startTime) / 1000000000.0;
     }
 
+    public static void main(String[] args) {
+        int operationCount = 1000000;
+
+        ArrayQueue<Integer> arrayQueue = new ArrayQueue<>();
+        double time1 = testQueue(arrayQueue, operationCount);
+        System.out.println("ArrayQueue: " + time1 + " seconds");
+
+        LoopQueue<Integer> loopQueue = new LoopQueue<>();
+        double time2 = testQueue(loopQueue, operationCount);
+        System.out.println("LoopQueue: " + time2 + " seconds");
+
+    }
 }
