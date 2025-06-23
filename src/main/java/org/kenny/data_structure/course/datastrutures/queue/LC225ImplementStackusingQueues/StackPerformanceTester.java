@@ -53,6 +53,19 @@ public class StackPerformanceTester {
             }
             long endTime = System.nanoTime();
             return (endTime - startTime) / 1_000_000_000.0;
+            
+        } else if (stack instanceof MyStack4) {
+            MyStack4 myStack4 = (MyStack4) stack;
+            for (int i = 0; i < size; i++) {
+                myStack4.push(i);
+            }
+            
+            long startTime = System.nanoTime();
+            for (int i = 0; i < iterations; i++) {
+                myStack4.top();
+            }
+            long endTime = System.nanoTime();
+            return (endTime - startTime) / 1_000_000_000.0;
         }
         
         return 0.0;
