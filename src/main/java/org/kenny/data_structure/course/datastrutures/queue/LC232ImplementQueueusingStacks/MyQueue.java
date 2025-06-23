@@ -22,4 +22,15 @@ public class MyQueue {
         }
     }
 
+    public int pop() {
+        return stack.pop();
+    }
+
+    public int peek() {
+        return stack.peek();
+    }
+
+    public boolean empty() {
+        return stack.isEmpty();
+    }
 }
