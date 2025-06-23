@@ -239,4 +239,123 @@ public class StackPerformanceTester {
             System.out.println();
         }
     }
+    
+    /**
+     * Comprehensive comparison of all four stack implementations
+     */
+    public static void compareAllFourImplementations(Object stack1, Object stack2, Object stack3, Object stack4, 
+                                                   String name1, String name2, String name3, String name4) {
+        System.out.println("=== Comprehensive Comparison: All Four Implementations ===\n");
+        
+        int[] sizes = {100, 500, 1000, 2000};
+        int iterations = 500;
+        
+        for (int size : sizes) {
+            System.out.println("Stack size: " + size + ", Iterations: " + iterations);
+            
+            double time1 = testStackPerformance(name1, stack1, size, iterations);
+            double time2 = testStackPerformance(name2, stack2, size, iterations);
+            double time3 = testStackPerformance(name3, stack3, size, iterations);
+            double time4 = testStackPerformance(name4, stack4, size, iterations);
+            
+            System.out.printf("%s.top(): %.6f seconds\n", name1, time1);
+            System.out.printf("%s.top(): %.6f seconds\n", name2, time2);
+            System.out.printf("%s.top(): %.6f seconds\n", name3, time3);
+            System.out.printf("%s.top(): %.6f seconds\n", name4, time4);
+            
+            // Find the fastest
+            double fastest = Math.min(Math.min(time1, time2), Math.min(time3, time4));
+            String fastestName = "";
+            if (fastest == time1) fastestName = name1;
+            else if (fastest == time2) fastestName = name2;
+            else if (fastest == time3) fastestName = name3;
+            else fastestName = name4;
+            
+            System.out.printf("Fastest: %s (%.6f seconds)\n", fastestName, fastest);
+            System.out.println();
+        }
+    }
+    
+    /**
+     * Test pop() performance for all four stack implementations
+     */
+    public static void testPopPerformanceAll(Object stack1, Object stack2, Object stack3, Object stack4, 
+                                           String name1, String name2, String name3, String name4, int size, int iterations) {
+        System.out.println("=== Pop Performance Test (size: " + size + ", iterations: " + iterations + ") ===\n");
+        
+        // Test MyStack pop performance
+        MyStack myStack = (MyStack) stack1;
+        for (int i = 0; i < size; i++) {
+            myStack.push(i);
+        }
+        
+        long startTime = System.nanoTime();
+        for (int i = 0; i < iterations; i++) {
+            myStack.pop();
+            myStack.push(i); // Restore the element
+        }
+        long endTime = System.nanoTime();
+        double time1 = (endTime - startTime) / 1_000_000_000.0;
+        
+        // Test MyStack2 pop performance
+        MyStack2 myStack2 = (MyStack2) stack2;
+        for (int i = 0; i < size; i++) {
+            myStack2.push(i);
+        }
+        
+        startTime = System.nanoTime();
+        for (int i = 0; i < iterations; i++) {
+            myStack2.pop();
+            myStack2.push(i); // Restore the element
+        }
+        endTime = System.nanoTime();
+        double time2 = (endTime - startTime) / 1_000_000_000.0;
+        
+        // Test MyStack3 pop performance
+        MyStack3 myStack3 = (MyStack3) stack3;
+        for (int i = 0; i < size; i++) {
+            myStack3.push(i);
+        }
+        
+        startTime = System.nanoTime();
+        for (int i = 0; i < iterations; i++) {
+            myStack3.pop();
+            myStack3.push(i); // Restore the element
+        }
+        endTime = System.nanoTime();
+        double time3 = (endTime - startTime) / 1_000_000_000.0;
+        
+        // Test MyStack4 pop performance
+        MyStack4 myStack4 = (MyStack4) stack4;
+        for (int i = 0; i < size; i++) {
+            myStack4.push(i);
+        }
+        
+        startTime = System.nanoTime();
+        for (int i = 0; i < iterations; i++) {
+            myStack4.pop();
+            myStack4.push(i); // Restore the element
+        }
+        endTime = System.nanoTime();
+        double time4 = (endTime - startTime) / 1_000_000_000.0;
+        
+        System.out.printf("%s.pop() time: %.6f seconds\n", name1, time1);
+        System.out.printf("%s.pop() time: %.6f seconds\n", name2, time2);
+        System.out.printf("%s.pop() time: %.6f seconds\n", name3, time3);
+        System.out.printf("%s.pop() time: %.6f seconds\n", name4, time4);
+        
+        // Find the fastest
+        double fastest = Math.min(Math.min(time1, time2), Math.min(time3, time4));
+        String fastestName = "";
+        if (fastest == time1) fastestName = name1;
+        else if (fastest == time2) fastestName = name2;
+        else if (fastest == time3) fastestName = name3;
+        else fastestName = name4;
+        
+        System.out.printf("\nFastest pop(): %s (%.6f seconds)\n", fastestName, fastest);
+        
+        if (fastest == time3 || fastest == time4) {
+            System.out.println("✅ " + fastestName + " demonstrates optimal O(1) pop() performance!");
+        }
+    }
 } 
