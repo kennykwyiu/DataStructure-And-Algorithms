@@ -34,7 +34,7 @@ public class MyQueue2 {
     public int pop() {
         Stack<Integer> tempStack = new Stack<>();
         while (stack.size() > 1) {
-            front = stack.pop();
+            front = stack.peek();
             tempStack.push(stack.pop());
         }
         int ret = stack.pop();
