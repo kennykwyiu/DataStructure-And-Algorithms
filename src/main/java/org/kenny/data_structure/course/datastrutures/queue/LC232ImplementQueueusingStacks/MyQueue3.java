@@ -65,4 +65,19 @@ public class MyQueue3 {
     public boolean empty() {
         return stack1.isEmpty() && stack2.isEmpty();
     }
+
+    // Simple test for MyQueue3
+    public static void main(String[] args) {
+        MyQueue3 queue = new MyQueue3();
+        System.out.println("Push 1"); queue.push(1);
+        System.out.println("Push 2"); queue.push(2);
+        System.out.println("Push 3"); queue.push(3);
+        System.out.println("Peek: " + queue.peek()); // 1
+        System.out.println("Pop: " + queue.pop());   // 1
+        System.out.println("Peek: " + queue.peek()); // 2
+        System.out.println("empty: " + queue.empty()); // false
+        System.out.println("Pop: " + queue.pop());   // 2
+        System.out.println("Pop: " + queue.pop());   // 3
+        System.out.println("empty: " + queue.empty()); // true
+    }
 }
