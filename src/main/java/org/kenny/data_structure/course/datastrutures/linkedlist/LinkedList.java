@@ -49,4 +49,25 @@ public class LinkedList<E> {
         head = new Node(e, head);
         size++;
     }
+
+    public void add(int index, E e) {
+        if (index < 0 || index > size) {
+            throw new IllegalArgumentException("Add failed.Illegal index");
+        }
+        if (index == 0) {
+            addFirst(e);
+        } else {
+            Node prev = head;
+            for (int i = 0; i < index - 1; i++) {
+                prev = prev.next;
+            }
+
+//            Node node = new Node(e);
+//            node.next = prev.next;
+//            prev.next = node;
+
+            prev.next = new Node(e, prev.next);
+            size++;
+        }
+    }
 }
