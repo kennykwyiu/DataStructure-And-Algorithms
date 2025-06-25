@@ -24,4 +24,12 @@ public class LinkedList<E> {
             return e.toString();
         }
     }
+
+    private Node head;
+    int size;
+
+    public LinkedList() {
+        head = null;
+        size = 0;
+    }
 }
