@@ -42,10 +42,11 @@ public class LinkedList<E> {
     }
 
     public void addFirst(E e) {
-        Node newNode = new Node(e);
-        newNode.next = head;
-        head = newNode;
+//        Node newNode = new Node(e);
+//        newNode.next = head;
+//        head = newNode;
 
+        head = new Node(e, head);
         size++;
     }
 }
