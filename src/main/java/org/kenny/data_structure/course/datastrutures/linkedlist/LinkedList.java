@@ -70,4 +70,8 @@ public class LinkedList<E> {
             size++;
         }
     }
+
+    public void addLast(E e) {
+        add(size, e);
+    }
 }
