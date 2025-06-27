@@ -25,11 +25,11 @@ public class LinkedList<E> {
         }
     }
 
-    private Node head;
+    private Node dummyHead;
     int size;
 
     public LinkedList() {
-        head = null;
+        dummyHead = new Node(null, null);
         size = 0;
     }
 
@@ -46,7 +46,7 @@ public class LinkedList<E> {
 //        newNode.next = head;
 //        head = newNode;
 
-        head = new Node(e, head);
+        dummyHead = new Node(e, dummyHead);
         size++;
     }
 
@@ -57,7 +57,7 @@ public class LinkedList<E> {
         if (index == 0) {
             addFirst(e);
         } else {
-            Node prev = head;
+            Node prev = dummyHead;
             for (int i = 0; i < index - 1; i++) {
                 prev = prev.next;
             }
