@@ -97,4 +97,20 @@ public class LinkedList<E> {
     public E removeLast() {
         return remove(size - 1);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder();
+        res.append("LinkedList: ");
+        
+        Node cur = dummyHead.next;
+        while (cur != null) {
+            res.append(cur + " -> ");
+            cur = cur.next;
+        }
+        res.append("NULL");
+        
+        return res.toString();
+    }
+
 }
