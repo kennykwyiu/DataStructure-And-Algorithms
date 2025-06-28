@@ -113,4 +113,83 @@ public class LinkedList<E> {
         return res.toString();
     }
 
+    // Test case for LinkedList
+    public static void main(String[] args) {
+        LinkedList<Integer> list = new LinkedList<>();
+
+        System.out.println("=== LinkedList Test Cases ===");
+
+        // Test 1: Empty list operations
+        System.out.println("\n1. Testing empty list:");
+        System.out.println("Size: " + list.getSize());
+        System.out.println("Is empty: " + list.isEmpty());
+
+        // Test 2: Add operations
+        System.out.println("\n2. Testing add operations:");
+        list.addFirst(10);
+        System.out.println("After addFirst(10): Size = " + list.getSize());
+
+        list.addLast(20);
+        System.out.println("After addLast(20): Size = " + list.getSize());
+
+        list.add(1, 15);
+        System.out.println("After add(1, 15): Size = " + list.getSize());
+
+        list.addFirst(5);
+        System.out.println("After addFirst(5): Size = " + list.getSize());
+
+        list.addLast(25);
+        System.out.println("After addLast(25): Size = " + list.getSize());
+        System.out.println(list);
+
+        // Test 3: Remove operations
+        System.out.println("\n3. Testing remove operations:");
+        System.out.println("Current size: " + list.getSize());
+
+        int first = list.removeFirst();
+        System.out.println("Removed first: " + first + ", Size = " + list.getSize());
+        System.out.println(list);
+
+        int last = list.removeLast();
+        System.out.println("Removed last: " + last + ", Size = " + list.getSize());
+        System.out.println(list);
+
+        int middle = list.remove(1);
+        System.out.println("Removed at index 1: " + middle + ", Size = " + list.getSize());
+        System.out.println(list);
+
+        // Test 4: Edge cases
+        System.out.println("\n4. Testing edge cases:");
+        list.addFirst(100);
+        list.addLast(200);
+        System.out.println("After adding more elements: Size = " + list.getSize());
+        System.out.println(list);
+
+        // Remove all elements
+        while (!list.isEmpty()) {
+            int removed = list.removeFirst();
+            System.out.println("Removed: " + removed + ", Remaining size: " + list.getSize());
+            System.out.println(list);
+        }
+
+        System.out.println("Final size: " + list.getSize());
+        System.out.println("Is empty: " + list.isEmpty());
+
+        // Test 5: String LinkedList
+        System.out.println("\n5. Testing String LinkedList:");
+        LinkedList<String> stringList = new LinkedList<>();
+        stringList.addFirst("Hello");
+        stringList.addLast("World");
+        stringList.add(1, "Beautiful");
+        System.out.println("String list size: " + stringList.getSize());
+        System.out.println(list);
+
+        while (!stringList.isEmpty()) {
+            String removed = stringList.removeFirst();
+            System.out.println("Removed string: " + removed);
+            System.out.println("Removed string: " + removed);
+        }
+
+        System.out.println("\n=== All tests completed successfully! ===");
+    }
 }
