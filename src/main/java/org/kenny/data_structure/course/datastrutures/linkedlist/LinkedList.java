@@ -89,4 +89,12 @@ public class LinkedList<E> {
         size--;
         return retNode.e;
     }
+
+    public E removeFirst() {
+        return remove(0);
+    }
+
+    public E removeLast() {
+        return remove(size - 1);
+    }
 }
