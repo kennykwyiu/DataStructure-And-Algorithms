@@ -172,68 +172,99 @@ public class LinkedList<E> {
         System.out.println("\n2. Testing add operations:");
         list.addFirst(10);
         System.out.println("After addFirst(10): Size = " + list.getSize());
-
+        
         list.addLast(20);
         System.out.println("After addLast(20): Size = " + list.getSize());
-
+        
         list.add(1, 15);
         System.out.println("After add(1, 15): Size = " + list.getSize());
-
+        
         list.addFirst(5);
         System.out.println("After addFirst(5): Size = " + list.getSize());
-
+        
         list.addLast(25);
         System.out.println("After addLast(25): Size = " + list.getSize());
         System.out.println(list);
-
+        
+        // Test 2.5: Get and Set operations
+        System.out.println("\n2.5. Testing get and set operations:");
+        System.out.println("First element: " + list.getFirst());
+        System.out.println("Last element: " + list.getLast());
+        System.out.println("Element at index 2: " + list.get(2));
+        
+        list.set(1, 100);
+        System.out.println("After set(1, 100): " + list);
+        
+        list.set(0, 50);
+        System.out.println("After set(0, 50): " + list);
+        
+        // Test 2.6: Contains operation
+        System.out.println("\n2.6. Testing contains operation:");
+        System.out.println("Contains 100: " + list.contains(100));
+        System.out.println("Contains 15: " + list.contains(15));
+        System.out.println("Contains 999: " + list.contains(999));
+        
         // Test 3: Remove operations
         System.out.println("\n3. Testing remove operations:");
         System.out.println("Current size: " + list.getSize());
-
+        
         int first = list.removeFirst();
         System.out.println("Removed first: " + first + ", Size = " + list.getSize());
         System.out.println(list);
-
+        
         int last = list.removeLast();
         System.out.println("Removed last: " + last + ", Size = " + list.getSize());
         System.out.println(list);
-
+        
         int middle = list.remove(1);
         System.out.println("Removed at index 1: " + middle + ", Size = " + list.getSize());
         System.out.println(list);
-
+        
+        // Test 3.5: Get operations after removal
+        System.out.println("\n3.5. Testing get operations after removal:");
+        System.out.println("First element: " + list.getFirst());
+        System.out.println("Last element: " + list.getLast());
+        System.out.println("Element at index 0: " + list.get(0));
+        
         // Test 4: Edge cases
         System.out.println("\n4. Testing edge cases:");
         list.addFirst(100);
         list.addLast(200);
         System.out.println("After adding more elements: Size = " + list.getSize());
         System.out.println(list);
-
+        
         // Remove all elements
         while (!list.isEmpty()) {
             int removed = list.removeFirst();
             System.out.println("Removed: " + removed + ", Remaining size: " + list.getSize());
             System.out.println(list);
         }
-
+        
         System.out.println("Final size: " + list.getSize());
         System.out.println("Is empty: " + list.isEmpty());
-
-        // Test 5: String LinkedList
-        System.out.println("\n5. Testing String LinkedList:");
+        
+        // Test 5: String LinkedList with new operations
+        System.out.println("\n5. Testing String LinkedList with new operations:");
         LinkedList<String> stringList = new LinkedList<>();
         stringList.addFirst("Hello");
         stringList.addLast("World");
         stringList.add(1, "Beautiful");
+        System.out.println("String list: " + stringList);
         System.out.println("String list size: " + stringList.getSize());
-        System.out.println(list);
-
+        
+        System.out.println("First string: " + stringList.getFirst());
+        System.out.println("Last string: " + stringList.getLast());
+        System.out.println("Contains 'Hello': " + stringList.contains("Hello"));
+        System.out.println("Contains 'Python': " + stringList.contains("Python"));
+        
+        stringList.set(1, "Amazing");
+        System.out.println("After set(1, 'Amazing'): " + stringList);
+        
         while (!stringList.isEmpty()) {
             String removed = stringList.removeFirst();
             System.out.println("Removed string: " + removed);
-            System.out.println("Removed string: " + removed);
         }
-
+        
         System.out.println("\n=== All tests completed successfully! ===");
     }
 }
