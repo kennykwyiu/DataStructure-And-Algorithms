@@ -33,14 +33,29 @@ public class LinkedList<E> {
         size = 0;
     }
 
+    /**
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     * Simply returns the size field
+     */
     public int getSize() {
         return size;
     }
 
+    /**
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     * Simply checks if size is 0
+     */
     public boolean isEmpty() {
         return size == 0;
     }
 
+    /**
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     * Delegates to add(0, e) which is O(1) for index 0
+     */
     public void addFirst(E e) {
 //        Node newNode = new Node(e);
 //        newNode.next = head;
@@ -52,6 +67,18 @@ public class LinkedList<E> {
         add(0, e);
     }
 
+    /**
+     * Time Complexity: O(n) where n is the number of elements in the list
+     * Space Complexity: O(1)
+     * 
+     * Algorithm:
+     * 1. Traverse to the node at position index-1 (O(n) in worst case)
+     * 2. Create new node and link it in (O(1))
+     * 
+     * Best case: O(1) when adding at index 0
+     * Worst case: O(n) when adding at the end
+     * Average case: O(n/2) = O(n)
+     */
     public void add(int index, E e) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed.Illegal index");
@@ -70,51 +97,27 @@ public class LinkedList<E> {
         size++;
     }
 
+    /**
+     * Time Complexity: O(n) where n is the number of elements in the list
+     * Space Complexity: O(1)
+     * Delegates to add(size, e) which traverses the entire list
+     */
     public void addLast(E e) {
         add(size, e);
     }
 
-    public E get(int index) {
-        if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("Get failed.Illegal index");
-        }
-        Node cur = dummyHead.next;
-        for (int i = 0; i < index; i++) {
-            cur = cur.next;
-        }
-        return cur.e;
-    }
-
-    public E getFirst() {
-        return get(0);
-    }
-
-    public E getLast() {
-        return get(size - 1);
-    }
-
-    public void set(int index, E e) {
-        if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("Set failed.Illegal index");
-        }
-        Node cur = dummyHead.next;
-        for (int i = 0; i < index; i++) {
-            cur = cur.next;
-        }
-        cur.e = e;
-    }
-
-    public boolean contains(E e) {
-        Node cur = dummyHead.next;
-        while (cur != null) {
-            if (cur.e.equals(e)) {
-                return true;
-            }
-            cur = cur.next;
-        }
-        return false;
-    }
-
+    /**
+     * Time Complexity: O(n) where n is the number of elements in the list
+     * Space Complexity: O(1)
+     * 
+     * Algorithm:
+     * 1. Traverse to the node at position index-1 (O(n) in worst case)
+     * 2. Remove the node and update links (O(1))
+     * 
+     * Best case: O(1) when removing at index 0
+     * Worst case: O(n) when removing at the end
+     * Average case: O(n/2) = O(n)
+     */
     public E remove(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Remove failed.Illegal index");
@@ -131,12 +134,109 @@ public class LinkedList<E> {
         return retNode.e;
     }
 
+    /**
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     * Delegates to remove(0) which is O(1) with dummyHead
+     */
     public E removeFirst() {
         return remove(0);
     }
 
+    /**
+     * Time Complexity: O(n) where n is the number of elements in the list
+     * Space Complexity: O(1)
+     * Delegates to remove(size-1) which traverses to the second-to-last node
+     */
     public E removeLast() {
         return remove(size - 1);
+    }
+
+    /**
+     * Time Complexity: O(n) where n is the number of elements in the list
+     * Space Complexity: O(1)
+     * 
+     * Algorithm:
+     * 1. Traverse to the node at position index (O(n) in worst case)
+     * 2. Return the element (O(1))
+     * 
+     * Best case: O(1) when getting index 0
+     * Worst case: O(n) when getting the last element
+     * Average case: O(n/2) = O(n)
+     */
+    public E get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Get failed.Illegal index");
+        }
+        Node cur = dummyHead.next;
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+        return cur.e;
+    }
+
+    /**
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     * Delegates to get(0) which is O(1) with dummyHead
+     */
+    public E getFirst() {
+        return get(0);
+    }
+
+    /**
+     * Time Complexity: O(n) where n is the number of elements in the list
+     * Space Complexity: O(1)
+     * Delegates to get(size-1) which traverses the entire list
+     */
+    public E getLast() {
+        return get(size - 1);
+    }
+
+    /**
+     * Time Complexity: O(n) where n is the number of elements in the list
+     * Space Complexity: O(1)
+     * 
+     * Algorithm:
+     * 1. Traverse to the node at position index (O(n) in worst case)
+     * 2. Update the element (O(1))
+     * 
+     * Best case: O(1) when setting index 0
+     * Worst case: O(n) when setting the last element
+     * Average case: O(n/2) = O(n)
+     */
+    public void set(int index, E e) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Set failed.Illegal index");
+        }
+        Node cur = dummyHead.next;
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+        cur.e = e;
+    }
+
+    /**
+     * Time Complexity: O(n) where n is the number of elements in the list
+     * Space Complexity: O(1)
+     * 
+     * Algorithm:
+     * 1. Traverse the entire list (O(n))
+     * 2. Compare each element with the target (O(1) per comparison)
+     * 
+     * Best case: O(1) when element is found at the beginning
+     * Worst case: O(n) when element is not found or is at the end
+     * Average case: O(n/2) = O(n)
+     */
+    public boolean contains(E e) {
+        Node cur = dummyHead.next;
+        while (cur != null) {
+            if (cur.e.equals(e)) {
+                return true;
+            }
+            cur = cur.next;
+        }
+        return false;
     }
 
     @Override
