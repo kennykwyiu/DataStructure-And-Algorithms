@@ -46,5 +46,15 @@ public class LinkedListQueue <E> implements Queue<E> {
         return size == 0;
     }
 
-
+    @Override
+    public void enqueue(E e) {
+        if (tail == null) {
+            tail = new Node(e);
+            head = tail;
+        } else {
+            tail.next = new Node(e);
+            tail = tail.next;
+        }
+        size++;
+    }
 }
