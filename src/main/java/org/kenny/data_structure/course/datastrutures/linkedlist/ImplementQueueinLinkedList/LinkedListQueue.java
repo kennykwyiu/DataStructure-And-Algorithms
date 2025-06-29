@@ -26,4 +26,13 @@ public class LinkedListQueue <E> implements Queue<E> {
             return e.toString();
         }
     }
+
+    private Node head, tail;
+    private int size;
+
+    public LinkedListQueue() {
+        head = null;
+        tail = null;
+        size = 0;
+    }
 }
