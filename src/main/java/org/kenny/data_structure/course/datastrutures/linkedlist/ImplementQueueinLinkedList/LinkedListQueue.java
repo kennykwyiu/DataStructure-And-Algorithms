@@ -73,4 +73,26 @@ public class LinkedListQueue <E> implements Queue<E> {
         size--;
         return retNode.e;
     }
+
+    @Override
+    public E getFront() {
+        if (isEmpty()) {
+            throw new IllegalArgumentException("Cannot get front from an empty queue");
+        }
+        return head.e;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Queue: front ");
+
+        Node cur = head;
+        while (cur != null) {
+            sb.append(cur).append("->");
+            cur = cur.next;
+        }
+        sb.append("NULL tail");
+        return sb.toString();
+    }
 }
