@@ -144,13 +144,16 @@ public class LinkedList<E> {
         StringBuilder res = new StringBuilder();
         res.append("LinkedList: ");
         
-        Node cur = dummyHead.next;
-        while (cur != null) {
-            res.append(cur + " -> ");
-            cur = cur.next;
+//        Node cur = dummyHead.next;
+//        while (cur != null) {
+//            res.append(cur + " -> ");
+//            cur = cur.next;
+//        }
+
+        for (Node cur = dummyHead.next; cur != null; cur = cur.next) {
+            res.append(cur).append("->");
         }
         res.append("NULL");
-        
         return res.toString();
     }
 
