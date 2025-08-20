@@ -1,5 +1,7 @@
 package org.kenny.data_structure.course.datastrutures.queue;
 
+import org.kenny.data_structure.course.datastrutures.linkedlist.ImplementQueueinLinkedList.LinkedListQueue;
+
 import java.util.ArrayDeque;
 import java.util.Random;
 
@@ -23,13 +25,16 @@ public class Main {
     public static void main(String[] args) {
         int operationCount = 1000000;
 
-        ArrayQueue<Integer> arrayQueue = new ArrayQueue<>();
-        double time1 = testQueue(arrayQueue, operationCount);
-        System.out.println("ArrayQueue: " + time1 + " seconds");
+//        ArrayQueue<Integer> arrayQueue = new ArrayQueue<>();
+//        double time1 = testQueue(arrayQueue, operationCount);
+//        System.out.println("ArrayQueue: " + time1 + " seconds");
 
         LoopQueue<Integer> loopQueue = new LoopQueue<>();
         double time2 = testQueue(loopQueue, operationCount);
         System.out.println("LoopQueue: " + time2 + " seconds");
 
+        LinkedListQueue<Integer> linkedListQueue = new LinkedListQueue<>();
+        double time3 = testQueue(linkedListQueue, operationCount);
+        System.out.println("LinkedListQueue: " + time3 + " seconds");
     }
 }
