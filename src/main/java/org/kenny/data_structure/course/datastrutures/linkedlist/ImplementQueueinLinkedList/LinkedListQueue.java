@@ -1,6 +1,7 @@
 package org.kenny.data_structure.course.datastrutures.linkedlist.ImplementQueueinLinkedList;
 
 import org.kenny.data_structure.course.datastrutures.linkedlist.LinkedList;
+import org.kenny.data_structure.course.datastrutures.queue.Queue;
 
 public class LinkedListQueue <E> implements Queue<E> {
 
