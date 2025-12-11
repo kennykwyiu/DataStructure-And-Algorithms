@@ -6,4 +6,10 @@ public class Order {
     private final double price;
     private final int quantity;
 
+    public Order(long orderId, String symbol, double price, int quantity) {
+        this.orderId = orderId;
+        this.symbol = symbol;
+        this.price = price;
+        this.quantity = quantity;
+    }
 }
