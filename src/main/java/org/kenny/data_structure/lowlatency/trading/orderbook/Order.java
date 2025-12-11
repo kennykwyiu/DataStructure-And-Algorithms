@@ -12,4 +12,6 @@ public class Order {
         this.price = price;
         this.quantity = quantity;
     }
+
+    public long getOrderId() { return orderId; }
 }
