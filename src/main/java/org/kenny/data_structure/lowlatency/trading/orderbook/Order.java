@@ -16,4 +16,5 @@ public class Order {
     public long getOrderId() { return orderId; }
     public String getSymbol() { return symbol; }
     public double getPrice() { return price; }
+    public int getQuantity() { return quantity; }
 }
