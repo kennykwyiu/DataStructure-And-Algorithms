@@ -7,4 +7,8 @@ public class DirectArrayOrderBook {
     public void addOrder(Order order) {
         orders[(int) order.getOrderId()] = order;
     }
+
+    public Order getOrder(long orderId) {
+        return orders[(int) orderId];
+    }
 }
