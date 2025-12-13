@@ -9,4 +9,8 @@ public class HashMapOrderBook {
     public void addOrder(Order order) {
         orders.put(order.getOrderId(), order);
     }
+
+    public Order getOrder(long orderId) {
+        return orders.get(orderId);
+    }
 }
