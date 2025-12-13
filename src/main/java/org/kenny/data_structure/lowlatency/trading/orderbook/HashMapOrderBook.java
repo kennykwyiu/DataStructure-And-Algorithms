@@ -6,4 +6,7 @@ import java.util.Map;
 public class HashMapOrderBook {
     private Map<Long, Order> orders = new HashMap<>();
 
+    public void addOrder(Order order) {
+        orders.put(order.getOrderId(), order);
+    }
 }
