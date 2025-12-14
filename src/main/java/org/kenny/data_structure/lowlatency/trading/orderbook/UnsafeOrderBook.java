@@ -5,4 +5,5 @@ import sun.misc.Unsafe;
 import java.lang.reflect.Field;
 
 public class UnsafeOrderBook {
+    private static final Unsafe unsafe;
 }
