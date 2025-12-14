@@ -7,4 +7,5 @@ import java.lang.reflect.Field;
 public class UnsafeOrderBook {
     private static final Unsafe unsafe;
     private static final long REFERENCE_SIZE = 8;
+    private long baseAddress;
 }
