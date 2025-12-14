@@ -20,4 +20,9 @@ public class UnsafeOrderBook {
         }
     }
 
+    public UnsafeOrderBook(int maxOrders) {
+        this.maxOrders = maxOrders;
+        baseAddress = unsafe.allocateMemory(maxOrders * REFERENCE_SIZE);
+        unsafe.setMemory(baseAddress, maxOrders * REFERENCE_SIZE, (byte) 0);
+    }
 }
