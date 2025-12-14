@@ -8,4 +8,7 @@ public class UnsafeOrderBook {
     private static final Unsafe unsafe;
     private static final long REFERENCE_SIZE = 8;
     private long baseAddress;
+    private int maxOrders;
+
+
 }
