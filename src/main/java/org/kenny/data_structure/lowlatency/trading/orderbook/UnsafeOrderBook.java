@@ -50,4 +50,8 @@ public class UnsafeOrderBook {
         unsafe.putLong(array, baseOffset, address);
         return (Order) array[0];
     }
+
+    public void cleanup() {
+        unsafe.freeMemory(baseAddress);
+    }
 }
