@@ -25,4 +25,12 @@ public class UnsafeOrderBook {
         baseAddress = unsafe.allocateMemory(maxOrders * REFERENCE_SIZE);
         unsafe.setMemory(baseAddress, maxOrders * REFERENCE_SIZE, (byte) 0);
     }
+
+
+    private long toLongAddress(Object obj) {
+        Object[] array = new Object[] { obj };
+        long baseOffset = unsafe.arrayBaseOffset(Object[].class);
+        return unsafe.getLong(array, baseOffset);
+    }
+
 }
