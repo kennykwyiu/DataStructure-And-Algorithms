@@ -31,6 +31,12 @@ public class UnsafeOrderBook {
         unsafe.putLong(address, toLongAddress(order));
     }
 
+    public Order getOrder(long orderId) {
+        long address = baseAddress + (orderId * REFERENCE_SIZE);
+        long objAddress = unsafe.getLong(address);
+        return fromLongAddress(objAddress);
+    }
+
     private long toLongAddress(Object obj) {
         Object[] array = new Object[] { obj };
         long baseOffset = unsafe.arrayBaseOffset(Object[].class);
