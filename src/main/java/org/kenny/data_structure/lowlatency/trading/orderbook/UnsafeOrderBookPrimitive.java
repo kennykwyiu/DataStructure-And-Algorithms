@@ -9,6 +9,7 @@ public class UnsafeOrderBookPrimitive {
     static class OrderData {
         long orderId;
         double price;
+        int quantity;
 
     }
 }
