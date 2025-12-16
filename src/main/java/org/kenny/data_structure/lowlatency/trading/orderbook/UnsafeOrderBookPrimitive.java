@@ -10,11 +10,11 @@ public class UnsafeOrderBookPrimitive {
         long orderId;
         double price;
         int quantity;
-//
-//        OrderData(long orderId, double price, int quantity) {
-//            this.orderId = orderId;
-//            this.price = price;
-//            this.quantity = quantity;
-//        }
+
+        OrderData(long orderId, double price, int quantity) {
+            this.orderId = orderId;
+            this.price = price;
+            this.quantity = quantity;
+        }
     }
 }
