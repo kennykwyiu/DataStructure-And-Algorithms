@@ -23,6 +23,14 @@ public class UnsafeOrderBookPrimitive {
         baseAddress = unsafe.allocateMemory(maxOrders * ORDER_STRUCT_SIZE);
     }
 
+    public void putOrder(long orderId, double price, int quantity) {
+        long address = baseAddress + (orderId * ORDER_STRUCT_SIZE);
+        unsafe.putLong(address, orderId);
+        unsafe.putDouble(address + 8, price);
+        unsafe.putInt(address + 16, quantity);
+    }
+
+
     static class OrderData {
         long orderId;
         double price;
