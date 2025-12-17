@@ -7,6 +7,7 @@ import java.lang.reflect.Field;
 public class UnsafeOrderBookPrimitive {
     private static final Unsafe unsafe;
     private static final long ORDER_STRUCT_SIZE = 32;
+    private long baseAddress;
 
     static class OrderData {
         long orderId;
