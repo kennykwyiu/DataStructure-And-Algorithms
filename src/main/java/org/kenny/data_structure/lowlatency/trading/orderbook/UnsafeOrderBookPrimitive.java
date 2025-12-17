@@ -5,6 +5,7 @@ import sun.misc.Unsafe;
 import java.lang.reflect.Field;
 
 public class UnsafeOrderBookPrimitive {
+    private static final Unsafe unsafe;
 
     static class OrderData {
         long orderId;
