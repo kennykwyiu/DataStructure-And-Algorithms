@@ -19,6 +19,9 @@ public class UnsafeOrderBookPrimitive {
         }
     }
 
+    public UnsafeOrderBookPrimitive(int maxOrders) {
+        baseAddress = unsafe.allocateMemory(maxOrders * ORDER_STRUCT_SIZE);
+    }
 
     static class OrderData {
         long orderId;
