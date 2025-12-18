@@ -30,6 +30,13 @@ public class UnsafeOrderBookPrimitive {
         unsafe.putInt(address + 16, quantity);
     }
 
+    public OrderData getOrder(long orderId) {
+        long address = baseAddress + (orderId * ORDER_STRUCT_SIZE);
+        long id = unsafe.getLong(address);
+        double price = unsafe.getDouble(address + 8);
+        int quantity = unsafe.getInt(address + 16);
+        return new OrderData(id, price, quantity);
+    }
 
     static class OrderData {
         long orderId;
