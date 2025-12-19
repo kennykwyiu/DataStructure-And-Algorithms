@@ -38,6 +38,10 @@ public class UnsafeOrderBookPrimitive {
         return new OrderData(id, price, quantity);
     }
 
+    public void cleanup() {
+        unsafe.freeMemory(baseAddress);
+    }
+
     static class OrderData {
         long orderId;
         double price;
