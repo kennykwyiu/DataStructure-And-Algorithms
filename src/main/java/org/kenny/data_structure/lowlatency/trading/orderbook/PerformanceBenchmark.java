@@ -16,4 +16,16 @@ public class PerformanceBenchmark {
         System.gc();
         System.out.println("Warmup complete.\n");
     }
+
+    private static void benchmarkHashMapWrite() {
+        HashMapOrderBook book = new HashMapOrderBook();
+        long start = System.nanoTime();
+        for (int i = 0; i < ITERATIONS; i++) {
+            book.addOrder(new Order(i, "AAPL", 150.0 + i, 100));
+        }
+        long elapsed = System.nanoTime() - start;
+        System.out.printf("HashMap Write:           %6d ms  (%5.2f ns/op)\n",
+                elapsed / 1_000_000, (double) elapsed / ITERATIONS);
+    }
+
 }
