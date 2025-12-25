@@ -52,4 +52,16 @@ public class PerformanceBenchmark {
         book.cleanup();
     }
 
+    private static void benchmarkUnsafePrimitiveWrite() {
+        UnsafeOrderBookPrimitive book = new UnsafeOrderBookPrimitive(ITERATIONS);
+        long start = System.nanoTime();
+        for (int i = 0; i < ITERATIONS; i++) {
+            book.putOrder(i, 150.0 + i, 100);
+        }
+        long elapsed = System.nanoTime() - start;
+        System.out.printf("Unsafe (Primitive) Write:%6d ms  (%5.2f ns/op)  ⚡ FASTEST\n",
+                elapsed / 1_000_000, (double) elapsed / ITERATIONS);
+        book.cleanup();
+    }
+
 }
