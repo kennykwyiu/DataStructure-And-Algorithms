@@ -64,4 +64,20 @@ public class PerformanceBenchmark {
         book.cleanup();
     }
 
+    private static void benchmarkHashMapRead() {
+        HashMapOrderBook book = new HashMapOrderBook();
+        for (int i = 0; i < ITERATIONS; i++) {
+            book.addOrder(new Order(i, "AAPL", 150.0, 100));
+        }
+
+        Random rand = new Random(42);
+        long start = System.nanoTime();
+        for (int i = 0; i < ITERATIONS; i++) {
+            Order o = book.getOrder(rand.nextInt(ITERATIONS));
+        }
+        long elapsed = System.nanoTime() - start;
+        System.out.printf("HashMap Read:            %6d ms  (%5.2f ns/op)\n",
+                elapsed / 1_000_000, (double) elapsed / ITERATIONS);
+    }
+
 }
