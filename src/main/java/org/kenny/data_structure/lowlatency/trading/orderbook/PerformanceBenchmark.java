@@ -22,6 +22,9 @@ public class PerformanceBenchmark {
         benchmarkDirectArrayRead();
         benchmarkUnsafeRead();
         benchmarkUnsafePrimitiveRead();
+
+        System.out.println("\n--- Memory Footprint Comparison ---");
+        compareMemoryFootprint();
     }
 
     private static void warmup() {
