@@ -16,6 +16,12 @@ public class PerformanceBenchmark {
         benchmarkDirectArrayWrite();
         benchmarkUnsafeWrite();
         benchmarkUnsafePrimitiveWrite();
+
+        System.out.println("\n--- READ Performance (1M random lookups) ---");
+        benchmarkHashMapRead();
+        benchmarkDirectArrayRead();
+        benchmarkUnsafeRead();
+        benchmarkUnsafePrimitiveRead();
     }
 
     private static void warmup() {
