@@ -10,6 +10,12 @@ public class PerformanceBenchmark {
         System.out.println("=== Low Latency Order Lookup Performance Benchmark ===\n");
 
         warmup();
+
+        System.out.println("--- WRITE Performance (1M operations) ---");
+        benchmarkHashMapWrite();
+        benchmarkDirectArrayWrite();
+        benchmarkUnsafeWrite();
+        benchmarkUnsafePrimitiveWrite();
     }
 
     private static void warmup() {
