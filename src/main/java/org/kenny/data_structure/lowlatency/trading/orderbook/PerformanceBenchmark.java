@@ -9,6 +9,7 @@ public class PerformanceBenchmark {
     public static void main(String[] args) {
         System.out.println("=== Low Latency Order Lookup Performance Benchmark ===\n");
 
+        warmup();
     }
 
     private static void warmup() {
