@@ -6,6 +6,11 @@ public class PerformanceBenchmark {
     private static final int WARMUP = 100_000;
     private static final int ITERATIONS = 1_000_000;
 
+    public static void main(String[] args) {
+        System.out.println("=== Low Latency Order Lookup Performance Benchmark ===\n");
+
+    }
+
     private static void warmup() {
         System.out.println("Warming up JVM...");
         HashMapOrderBook warmupMap = new HashMapOrderBook();
