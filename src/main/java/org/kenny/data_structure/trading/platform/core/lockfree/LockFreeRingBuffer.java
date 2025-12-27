@@ -30,4 +30,17 @@ public class LockFreeRingBuffer<T> {
         return true;
     }
 
+    @SuppressWarnings("unchecked")
+    public T poll() {
+        long currentRead = readPosition.get();
+
+        // Check if buffer is empty
+        if (currentRead >= writePosition.get()) {
+            return null;
+        }
+
+        T item = (T) buffer[(int) (currentRead & mask)];
+        readPosition.lazySet(currentRead + 1); // Memory barrier
+        return item;
+    }
 }
