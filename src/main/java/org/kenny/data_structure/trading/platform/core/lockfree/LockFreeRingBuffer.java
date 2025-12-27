@@ -16,4 +16,18 @@ public class LockFreeRingBuffer<T> {
         this.buffer = new Object[this.capacity];
     }
 
+    public boolean offer(T item) {
+        long currentWrite = writePosition.get();
+        long nextWrite = currentWrite + 1;
+
+        // Check if buffer is full
+        if (nextWrite - readPosition.get() > capacity) {
+            return false;
+        }
+
+        buffer[(int) (currentWrite & mask)] = item;
+        writePosition.lazySet(nextWrite); // Memory barrier
+        return true;
+    }
+
 }
