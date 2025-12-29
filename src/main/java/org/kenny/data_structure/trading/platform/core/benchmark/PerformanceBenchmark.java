@@ -10,5 +10,17 @@ public class PerformanceBenchmark {
             operation.run();
         }
 
+        // Actual benchmark with latency tracking
+        long[] latencies = new long[iterations];
+        long startTime = System.nanoTime();
+
+        for (int i = 0; i < iterations; i++) {
+            long opStart = System.nanoTime();
+            operation.run();
+            latencies[i] = System.nanoTime() - opStart;
+        }
+
+        long totalTime = System.nanoTime() - startTime;
+        
     }
 }
