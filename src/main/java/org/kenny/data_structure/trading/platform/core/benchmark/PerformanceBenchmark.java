@@ -21,6 +21,21 @@ public class PerformanceBenchmark {
         }
 
         long totalTime = System.nanoTime() - startTime;
-        
+
+        // Calculate statistics
+        Arrays.sort(latencies);
+
+        BenchmarkResult result = new BenchmarkResult();
+        result.iterations = iterations;
+        result.totalTimeNanos = totalTime;
+        result.throughput = (iterations / (totalTime / 1_000_000_000.0));
+        result.p50Latency = latencies[iterations / 2];
+        result.p95Latency = latencies[(int) (iterations * 0.95)];
+        result.p99Latency = latencies[(int) (iterations * 0.99)];
+        result.maxLatency = latencies[iterations - 1];
+        result.minLatency = latencies[0];
+        result.avgLatency = totalTime / iterations;
+
+        return result;
     }
 }
