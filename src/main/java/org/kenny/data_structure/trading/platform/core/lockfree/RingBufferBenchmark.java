@@ -27,6 +27,27 @@ public class RingBufferBenchmark {
         System.out.println(ringBufferResult);
         System.out.println();
 
+        // Test 2: LinkedBlockingQueue for comparison
+        System.out.println("Test 2: LinkedBlockingQueue (for comparison)");
+        java.util.concurrent.LinkedBlockingQueue<Message> blockingQueue =
+                new java.util.concurrent.LinkedBlockingQueue<>(1024);
+
+        BenchmarkResult blockingQueueResult =
+                PerformanceBenchmark.benchmark(() -> {
+                    Message msg = new Message();
+                    msg.id = 1;
+                    msg.timestamp = System.nanoTime();
+
+                    try {
+                        blockingQueue.put(msg);
+                        blockingQueue.take();
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }, 1000000, 100000);
+
+        System.out.println(blockingQueueResult);
+        System.out.println();
 
     }
 }
