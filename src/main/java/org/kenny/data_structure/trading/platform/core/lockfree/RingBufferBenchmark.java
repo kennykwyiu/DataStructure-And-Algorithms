@@ -49,5 +49,13 @@ public class RingBufferBenchmark {
         System.out.println(blockingQueueResult);
         System.out.println();
 
+        // Compare results
+        System.out.println("=== Performance Comparison ===");
+        System.out.printf("Throughput improvement: %.2fx faster%n",
+                ringBufferResult.throughput / blockingQueueResult.throughput);
+        System.out.printf("P50 latency improvement: %.2fx faster%n",
+                (double) blockingQueueResult.p50Latency / ringBufferResult.p50Latency);
+        System.out.printf("P99 latency improvement: %.2fx faster%n",
+                (double) blockingQueueResult.p99Latency / ringBufferResult.p99Latency);
     }
 }
