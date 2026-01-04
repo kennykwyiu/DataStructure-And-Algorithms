@@ -6,4 +6,13 @@ import org.kenny.data_structure.trading.platform.core.benchmark.PerformanceBench
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class OrderFlowExample {
+
+    private static void simulateExecution(Order order) {
+        // Simulate execution latency
+        try {
+            Thread.sleep(0, 500); // 500 nanoseconds
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
 }
