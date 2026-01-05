@@ -6,6 +6,11 @@ import org.kenny.data_structure.trading.platform.core.benchmark.PerformanceBench
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class OrderFlowExample {
+    public static void main(String[] args) throws InterruptedException {
+        LockFreeRingBuffer<Order> riskToExecution = new LockFreeRingBuffer<>(512);
+        LockFreeRingBuffer<Order> executionToConfirmation = new LockFreeRingBuffer<>(512);
+
+    }
 
     private static void simulateExecution(Order order) {
         // Simulate execution latency
