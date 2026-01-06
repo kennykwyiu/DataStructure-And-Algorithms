@@ -20,5 +20,14 @@ public class OrderFlowExample {
         // Record start time for performance measurement of lock-free implementation
         long startTime = System.nanoTime();
 
+        // ====================================================================
+        // STEP 2: Create Stage 1 - Risk Management System Thread
+        // ====================================================================
+        // This thread simulates a risk management system that validates orders
+        // before they can be executed. It acts as the producer for the first buffer.
+        Thread riskSystem = new Thread(() -> {
+
+        });
+
     }
 }
