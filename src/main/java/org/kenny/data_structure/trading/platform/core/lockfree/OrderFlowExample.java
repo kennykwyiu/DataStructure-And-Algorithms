@@ -47,5 +47,31 @@ public class OrderFlowExample {
             System.out.println("Risk system: 1000 orders approved");
         });
 
+        // ====================================================================
+        // STEP 3: Create Stage 2 - Execution Engine Thread
+        // ====================================================================
+        // This thread consumes orders from risk management and executes them.
+        // It acts as both consumer (from riskToExecution) and producer (to executionToConfirmation).
+        Thread executionEngine = new Thread(() -> {
+
+        });
+
+    }
+
+    // ====================================================================
+    // Helper Method: Simulate Order Execution Latency
+    // ====================================================================
+    // Simulates the time taken to execute an order in the market
+    // Uses minimal delay (500 nanoseconds) to represent execution processing time
+    // This allows the pipeline to demonstrate realistic concurrent behavior
+    // without adding significant overhead to performance measurements
+    private static void simulateExecution(Order order) {
+        // Simulate execution latency with minimal delay
+        try {
+            Thread.sleep(0, 500); // 500 nanoseconds - minimal execution processing time
+        } catch (InterruptedException e) {
+            // Preserve interrupt status if thread is interrupted
+            Thread.currentThread().interrupt();
+        }
     }
 }
