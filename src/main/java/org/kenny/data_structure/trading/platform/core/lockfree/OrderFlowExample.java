@@ -53,7 +53,11 @@ public class OrderFlowExample {
         // This thread consumes orders from risk management and executes them.
         // It acts as both consumer (from riskToExecution) and producer (to executionToConfirmation).
         Thread executionEngine = new Thread(() -> {
-
+            int executed = 0;
+            // Continue processing until all 1000 orders are executed
+            while (executed < 1000) {
+            }
+            System.out.println("Execution engine: 1000 orders executed");
         });
 
     }
