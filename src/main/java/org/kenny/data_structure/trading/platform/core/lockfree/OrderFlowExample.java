@@ -26,7 +26,19 @@ public class OrderFlowExample {
         // This thread simulates a risk management system that validates orders
         // before they can be executed. It acts as the producer for the first buffer.
         Thread riskSystem = new Thread(() -> {
+            // Generate 1000 test orders to process through the pipeline
+            for (int i = 0; i < 1000; i++) {
+                // Create a new order with test data
+                Order order = new Order();
+                order.orderId = i;
+                order.symbol = "MSFT";
+                order.quantity = 100;
+                order.price = 300.0;
+                // Alternate between BUY and SELL orders for variety
+                order.side = i % 2 == 0 ? "BUY" : "SELL";
 
+            }
+            System.out.println("Risk system: 1000 orders approved");
         });
 
     }
