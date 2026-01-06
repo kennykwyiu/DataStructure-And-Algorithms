@@ -37,6 +37,12 @@ public class OrderFlowExample {
                 // Alternate between BUY and SELL orders for variety
                 order.side = i % 2 == 0 ? "BUY" : "SELL";
 
+                // Attempt to offer the order to the execution buffer
+                // If buffer is full, yield and retry (non-blocking approach)
+                // This simulates risk check passed, ready to send to execution
+                while (!riskToExecution.offer(order)) {
+                    Thread.yield();
+                }
             }
             System.out.println("Risk system: 1000 orders approved");
         });
