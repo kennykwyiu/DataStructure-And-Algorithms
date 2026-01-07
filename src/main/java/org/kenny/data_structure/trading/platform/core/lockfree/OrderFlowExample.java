@@ -56,6 +56,19 @@ public class OrderFlowExample {
             int executed = 0;
             // Continue processing until all 1000 orders are executed
             while (executed < 1000) {
+                // Poll order from risk management buffer (non-blocking)
+                Order order = riskToExecution.poll();
+                if (order != null) {
+                    // Simulate order execution with minimal latency (500 nanoseconds)
+                    simulateExecution(order);
+
+                    // Forward executed order to confirmation handler
+                    // Retry if buffer is full (non-blocking with yield)
+                    while (!executionToConfirmation.offer(order)) {
+                        Thread.yield();
+                    }
+                    executed++;
+                }
             }
             System.out.println("Execution engine: 1000 orders executed");
         });
