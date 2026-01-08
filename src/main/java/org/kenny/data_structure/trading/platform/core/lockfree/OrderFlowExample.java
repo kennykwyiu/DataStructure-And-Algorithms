@@ -73,6 +73,26 @@ public class OrderFlowExample {
             System.out.println("Execution engine: 1000 orders executed");
         });
 
+        // ====================================================================
+        // STEP 4: Create Stage 3 - Confirmation Handler Thread
+        // ====================================================================
+        // This thread consumes executed orders and sends confirmations to clients.
+        // It acts as the final consumer in the pipeline.
+        Thread confirmationHandler = new Thread(() -> {
+            int confirmed = 0;
+            // Continue processing until all 1000 orders are confirmed
+            while (confirmed < 1000) {
+                // Poll executed order from confirmation buffer (non-blocking)
+                Order order = executionToConfirmation.poll();
+                if (order != null) {
+                    // Send confirmation message to client (simulated via console output)
+                    System.out.printf("Confirmed: Order %d - %s %d %s @ %.2f%n",
+                            order.orderId, order.side, order.quantity, order.symbol, order.price);
+                    confirmed++;
+                }
+            }
+        });
+
     }
 
     // ====================================================================
