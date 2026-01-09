@@ -153,6 +153,27 @@ public class OrderFlowExample {
         // Record start time for blocking queue implementation
         long blockingStartTime = System.nanoTime();
 
+        // ====================================================================
+        // STEP 9: Create blocking queue version of Stage 1 - Risk Management
+        // ====================================================================
+        // Same logic as lock-free version but using LinkedBlockingQueue
+        Thread blockingRiskSystem = new Thread(() -> {
+            for (int i = 0; i < 1000; i++) {
+                Order order = new Order();
+                order.orderId = i;
+                order.symbol = "MSFT";
+                order.quantity = 100;
+                order.price = 300.0;
+                order.side = i % 2 == 0 ? "BUY" : "SELL";
+
+                // Offer with retry (same pattern as lock-free for fair comparison)
+                while (!blockingRiskToExec.offer(order)) {
+                    Thread.yield();
+                }
+            }
+            System.out.println("Risk system: 1000 orders approved");
+        });
+
     }
 
     // ====================================================================
