@@ -93,6 +93,15 @@ public class OrderFlowExample {
             }
         });
 
+        // ====================================================================
+        // STEP 5: Start all pipeline threads concurrently
+        // ====================================================================
+        // Launch all three stages simultaneously to demonstrate concurrent processing
+        // The pipeline will process orders as they flow through each stage
+        riskSystem.start();
+        executionEngine.start();
+        confirmationHandler.start();
+
     }
 
     // ====================================================================
