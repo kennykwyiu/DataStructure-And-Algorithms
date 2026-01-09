@@ -102,6 +102,19 @@ public class OrderFlowExample {
         executionEngine.start();
         confirmationHandler.start();
 
+        // ====================================================================
+        // STEP 6: Wait for all threads to complete
+        // ====================================================================
+        // Ensure all orders have been processed through the entire pipeline
+        // before proceeding to performance measurements
+        riskSystem.join();
+        executionEngine.join();
+        confirmationHandler.join();
+
+        System.out.println("Order flow pipeline completed");
+        // Record end time for lock-free implementation performance measurement
+        long endTime = System.nanoTime();
+
     }
 
     // ====================================================================
