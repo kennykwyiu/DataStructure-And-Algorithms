@@ -139,6 +139,20 @@ public class OrderFlowExample {
 
         System.out.println(result);
 
+        // ====================================================================
+        // STEP 8: Run comparison test with LinkedBlockingQueue
+        // ====================================================================
+        // Replicate the same pipeline using standard Java blocking queue
+        // to compare performance against lock-free implementation
+        System.out.println("\n=== Running comparison with LinkedBlockingQueue ===");
+
+        // Initialize blocking queues with same capacity (512)
+        LinkedBlockingQueue<Order> blockingRiskToExec = new LinkedBlockingQueue<>(512);
+        LinkedBlockingQueue<Order> blockingExecToConf = new LinkedBlockingQueue<>(512);
+
+        // Record start time for blocking queue implementation
+        long blockingStartTime = System.nanoTime();
+
     }
 
     // ====================================================================
