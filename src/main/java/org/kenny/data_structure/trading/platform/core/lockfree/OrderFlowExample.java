@@ -174,6 +174,26 @@ public class OrderFlowExample {
             System.out.println("Risk system: 1000 orders approved");
         });
 
+        // ====================================================================
+        // STEP 10: Create blocking queue version of Stage 2 - Execution Engine
+        // ====================================================================
+        // Same execution logic using LinkedBlockingQueue
+        Thread blockingExecutionEngine = new Thread(() -> {
+            int executed = 0;
+            while (executed < 1000) {
+                Order order = blockingRiskToExec.poll();
+                if (order != null) {
+                    simulateExecution(order);
+
+                    while (!blockingExecToConf.offer(order)) {
+                        Thread.yield();
+                    }
+                    executed++;
+                }
+            }
+            System.out.println("Execution engine: 1000 orders executed");
+        });
+
     }
 
     // ====================================================================
