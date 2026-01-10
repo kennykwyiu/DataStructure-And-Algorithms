@@ -227,6 +227,18 @@ public class OrderFlowExample {
         // Record end time for blocking queue implementation
         long blockingEndTime = System.nanoTime();
 
+        // ====================================================================
+        // STEP 14: Print performance comparison results
+        // ====================================================================
+        // Display execution times for both implementations to compare performance
+        // Lock-free implementation should show better performance due to:
+        // - No lock contention
+        // - Better cache locality
+        // - Reduced context switching overhead
+        System.out.printf("Lock-Free Ring Buffer: %.2f ms\n",
+                (endTime - startTime) / 1_000_000.0);
+        System.out.printf("LinkedBlockingQueue: %.2f ms\n",
+                (blockingEndTime - blockingStartTime) / 1_000_000.0);
     }
 
     // ====================================================================
