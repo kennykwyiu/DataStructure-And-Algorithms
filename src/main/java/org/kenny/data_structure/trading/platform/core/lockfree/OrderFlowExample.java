@@ -210,6 +210,13 @@ public class OrderFlowExample {
             }
         });
 
+        // ====================================================================
+        // STEP 12: Start blocking queue pipeline threads
+        // ====================================================================
+        blockingRiskSystem.start();
+        blockingExecutionEngine.start();
+        blockingConfirmationHandler.start();
+
     }
 
     // ====================================================================
