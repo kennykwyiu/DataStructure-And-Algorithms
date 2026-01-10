@@ -217,6 +217,16 @@ public class OrderFlowExample {
         blockingExecutionEngine.start();
         blockingConfirmationHandler.start();
 
+        // ====================================================================
+        // STEP 13: Wait for blocking queue pipeline to complete
+        // ====================================================================
+        blockingRiskSystem.join();
+        blockingExecutionEngine.join();
+        blockingConfirmationHandler.join();
+
+        // Record end time for blocking queue implementation
+        long blockingEndTime = System.nanoTime();
+
     }
 
     // ====================================================================
