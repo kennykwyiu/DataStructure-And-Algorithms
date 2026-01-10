@@ -1,4 +1,4 @@
-package org.kenny.data_structure.lowlatency.trading.orderbook;
+package org.kenny.trading.lowlatency.orderbook;
 
 public class Order {
     private final long orderId;

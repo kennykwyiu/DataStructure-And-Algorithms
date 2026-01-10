@@ -1,7 +1,7 @@
-package org.kenny.data_structure.trading.platform.core.lockfree;
+package org.kenny.core.platform.trading.lockfree;
 
-import org.kenny.data_structure.trading.platform.core.benchmark.BenchmarkResult;
-import org.kenny.data_structure.trading.platform.core.benchmark.PerformanceBenchmark;
+import org.kenny.core.platform.trading.benchmark.BenchmarkResult;
+import org.kenny.core.platform.trading.benchmark.PerformanceBenchmark;
 
 import java.util.concurrent.LinkedBlockingQueue;
 

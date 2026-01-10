@@ -1,4 +1,4 @@
-package org.kenny.data_structure.trading.platform.core.benchmark;
+package org.kenny.core.platform.trading.benchmark;
 
 public class BenchmarkResult {
     public int iterations;

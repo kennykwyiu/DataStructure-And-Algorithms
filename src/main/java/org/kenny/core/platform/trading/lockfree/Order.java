@@ -1,4 +1,4 @@
-package org.kenny.data_structure.trading.platform.core.lockfree;
+package org.kenny.core.platform.trading.lockfree;
 
 public class Order {
     long orderId;
