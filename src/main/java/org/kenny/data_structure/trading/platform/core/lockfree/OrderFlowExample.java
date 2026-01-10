@@ -194,6 +194,22 @@ public class OrderFlowExample {
             System.out.println("Execution engine: 1000 orders executed");
         });
 
+        // ====================================================================
+        // STEP 11: Create blocking queue version of Stage 3 - Confirmation Handler
+        // ====================================================================
+        // Same confirmation logic using LinkedBlockingQueue
+        Thread blockingConfirmationHandler = new Thread(() -> {
+            int confirmed = 0;
+            while (confirmed < 1000) {
+                Order order = blockingExecToConf.poll();
+                if (order != null) {
+                    System.out.printf("Confirmed: Order %d - %s %d %s @ %.2f%n",
+                            order.orderId, order.side, order.quantity, order.symbol, order.price);
+                    confirmed++;
+                }
+            }
+        });
+
     }
 
     // ====================================================================
