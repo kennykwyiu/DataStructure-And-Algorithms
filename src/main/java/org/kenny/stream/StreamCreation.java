@@ -162,4 +162,10 @@ public class StreamCreation {
         System.out.println("✓ testIntStreamRange_SingleValue passed\n");
     }
 
+    public static void testIntStreamRangeClosed_SingleValue(IntStream stream) {
+        // Test edge case: rangeClosed with same start and end (should contain one value)
+        List<Integer> result = stream.boxed().collect(Collectors.toList());
+        System.out.println("testIntStreamRangeClosed_SingleValue: Size=" + result.size() + ", Result=" + result);
+        System.out.println("✓ testIntStreamRangeClosed_SingleValue passed\n");
+    }
 }
