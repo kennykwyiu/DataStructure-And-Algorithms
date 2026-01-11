@@ -127,4 +127,11 @@ public class StreamCreation {
         System.out.println("✓ testStringChars passed\n");
     }
 
+    public static void testIntStreamRange(IntStream stream) {
+        // Step 9: Test creating an IntStream using range() (exclusive end)
+        List<Integer> result = stream.boxed().collect(Collectors.toList());
+        System.out.println("testIntStreamRange: Size=" + result.size() + ", Result=" + result);
+        System.out.println("✓ testIntStreamRange passed\n");
+    }
+
 }
