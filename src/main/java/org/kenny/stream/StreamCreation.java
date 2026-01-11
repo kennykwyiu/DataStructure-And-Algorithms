@@ -65,6 +65,24 @@ public class StreamCreation {
         IntStream rangeSingleValue = IntStream.range(5, 5);
         IntStream rangeClosedSingleValue = IntStream.rangeClosed(5, 5);
 
+        // Run all tests
+        System.out.println("\n=== Running Tests ===");
+        testStreamFromList(stream1);
+        testStreamFromArray(stream2);
+        testStreamOf(stream3);
+        testStreamBuilder(stream4);
+        testEmptyStream(objectStream);
+        testStreamGenerate(randomStream);
+        testStreamIterate(evenNumbers);
+        testStringChars(charStream);
+        testIntStreamRange(range);
+        testIntStreamRangeClosed(rangeClosed);
+        testStreamFromList_EmptyList(emptyListStream);
+        testStreamOf_SingleElement(singleElementStream);
+        testIntStreamRange_SingleValue(rangeSingleValue);
+        testIntStreamRangeClosed_SingleValue(rangeClosedSingleValue);
+        System.out.println("\n=== All Tests Passed ===");
+
     }
 
     // Test methods for each stream creation method
