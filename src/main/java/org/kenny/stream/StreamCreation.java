@@ -113,4 +113,11 @@ public class StreamCreation {
         System.out.println("✓ testStreamGenerate passed\n");
     }
 
+    public static void testStreamIterate(Stream<Integer> stream) {
+        // Step 7: Test creating an infinite stream using Stream.iterate()
+        List<Integer> result = stream.collect(Collectors.toList());
+        System.out.println("testStreamIterate: Size=" + result.size() + ", Result=" + result);
+        System.out.println("✓ testStreamIterate passed\n");
+    }
+
 }
