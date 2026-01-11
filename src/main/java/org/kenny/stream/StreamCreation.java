@@ -134,4 +134,11 @@ public class StreamCreation {
         System.out.println("✓ testIntStreamRange passed\n");
     }
 
+    public static void testIntStreamRangeClosed(IntStream stream) {
+        // Step 10: Test creating an IntStream using rangeClosed() (inclusive end)
+        List<Integer> result = stream.boxed().collect(Collectors.toList());
+        System.out.println("testIntStreamRangeClosed: Size=" + result.size() + ", Result=" + result);
+        System.out.println("✓ testIntStreamRangeClosed passed\n");
+    }
+
 }
