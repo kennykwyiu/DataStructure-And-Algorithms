@@ -90,4 +90,11 @@ public class StreamCreation {
         System.out.println("✓ testStreamOf passed\n");
     }
 
+    public static void testStreamBuilder(Stream<Object> stream) {
+        // Step 4: Test creating a stream using Stream.builder()
+        List<Object> result = stream.collect(Collectors.toList());
+        System.out.println("testStreamBuilder: Size=" + result.size() + ", Result=" + result);
+        System.out.println("✓ testStreamBuilder passed\n");
+    }
+
 }
