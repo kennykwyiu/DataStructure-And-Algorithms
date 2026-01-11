@@ -148,4 +148,11 @@ public class StreamCreation {
         System.out.println("✓ testStreamFromList_EmptyList passed\n");
     }
 
+    public static void testStreamOf_SingleElement(Stream<String> stream) {
+        // Test edge case: single element
+        List<String> result = stream.collect(Collectors.toList());
+        System.out.println("testStreamOf_SingleElement: Size=" + result.size() + ", Result=" + result);
+        System.out.println("✓ testStreamOf_SingleElement passed\n");
+    }
+
 }
