@@ -83,4 +83,11 @@ public class StreamCreation {
         System.out.println("✓ testStreamFromArray passed\n");
     }
 
+    public static void testStreamOf(Stream<String> stream) {
+        // Step 3: Test creating a stream using Stream.of()
+        List<String> result = stream.collect(Collectors.toList());
+        System.out.println("testStreamOf: Size=" + result.size() + ", Result=" + result);
+        System.out.println("✓ testStreamOf passed\n");
+    }
+
 }
