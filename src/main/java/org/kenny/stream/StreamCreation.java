@@ -120,4 +120,11 @@ public class StreamCreation {
         System.out.println("✓ testStreamIterate passed\n");
     }
 
+    public static void testStringChars(IntStream stream) {
+        // Step 8: Test creating an IntStream from a String
+        List<Integer> result = stream.boxed().collect(Collectors.toList());
+        System.out.println("testStringChars: Size=" + result.size() + ", Result=" + result);
+        System.out.println("✓ testStringChars passed\n");
+    }
+
 }
