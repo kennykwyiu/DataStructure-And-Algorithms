@@ -141,4 +141,11 @@ public class StreamCreation {
         System.out.println("✓ testIntStreamRangeClosed passed\n");
     }
 
+    public static void testStreamFromList_EmptyList(Stream<String> stream) {
+        // Test edge case: empty list
+        List<String> result = stream.collect(Collectors.toList());
+        System.out.println("testStreamFromList_EmptyList: Size=" + result.size() + ", IsEmpty=" + result.isEmpty() + ", Result=" + result);
+        System.out.println("✓ testStreamFromList_EmptyList passed\n");
+    }
+
 }
