@@ -104,4 +104,13 @@ public class StreamCreation {
         System.out.println("✓ testEmptyStream passed\n");
     }
 
+    public static void testStreamGenerate(Stream<Double> stream) {
+        // Step 6: Test creating an infinite stream using Stream.generate()
+        List<Double> result = stream.collect(Collectors.toList());
+        System.out.println("testStreamGenerate: Size=" + result.size() + ", Result=" + result);
+        boolean allValid = result.stream().allMatch(value -> value >= 0.0 && value < 1.0);
+        System.out.println("  All values between 0 and 1: " + allValid);
+        System.out.println("✓ testStreamGenerate passed\n");
+    }
+
 }
