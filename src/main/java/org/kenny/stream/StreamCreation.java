@@ -97,4 +97,11 @@ public class StreamCreation {
         System.out.println("✓ testStreamBuilder passed\n");
     }
 
+    public static void testEmptyStream(Stream<Object> stream) {
+        // Step 5: Test creating an empty stream
+        List<Object> result = stream.collect(Collectors.toList());
+        System.out.println("testEmptyStream: Size=" + result.size() + ", IsEmpty=" + result.isEmpty() + ", Result=" + result);
+        System.out.println("✓ testEmptyStream passed\n");
+    }
+
 }
