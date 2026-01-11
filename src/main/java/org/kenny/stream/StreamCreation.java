@@ -155,4 +155,11 @@ public class StreamCreation {
         System.out.println("✓ testStreamOf_SingleElement passed\n");
     }
 
+    public static void testIntStreamRange_SingleValue(IntStream stream) {
+        // Test edge case: range with same start and end (should be empty)
+        List<Integer> result = stream.boxed().collect(Collectors.toList());
+        System.out.println("testIntStreamRange_SingleValue: Size=" + result.size() + ", IsEmpty=" + result.isEmpty() + ", Result=" + result);
+        System.out.println("✓ testIntStreamRange_SingleValue passed\n");
+    }
+
 }
