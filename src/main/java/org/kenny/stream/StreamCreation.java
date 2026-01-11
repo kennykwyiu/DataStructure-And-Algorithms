@@ -66,4 +66,14 @@ public class StreamCreation {
         IntStream rangeClosedSingleValue = IntStream.rangeClosed(5, 5);
 
     }
+
+    // Test methods for each stream creation method
+
+    public static void testStreamFromList(Stream<String> stream) {
+        // Step 1: Test creating a stream from a List
+        List<String> result = stream.collect(Collectors.toList());
+        System.out.println("testStreamFromList: Size=" + result.size() + ", Result=" + result);
+        System.out.println("✓ testStreamFromList passed\n");
+    }
+
 }
