@@ -20,5 +20,6 @@ public class FilterExample {
                 .collect(Collectors.toList());
         System.out.println(result);
 
+        List<String> names = Arrays.asList("Alice", "Bob", "Andrew", "Charlie");
     }
 }
