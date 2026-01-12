@@ -21,5 +21,9 @@ public class FilterExample {
         System.out.println(result);
 
         List<String> names = Arrays.asList("Alice", "Bob", "Andrew", "Charlie");
+        List<String> aNames = names.stream()
+                .filter(name -> name.startsWith("A"))
+                .collect(Collectors.toList());
+        System.out.println("aNames: " + aNames);
     }
 }
