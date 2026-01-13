@@ -30,5 +30,17 @@ public class MapExample {
         System.out.println(lengths);
 
 
+        // Step 3: Create a list of numbers as the source data
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        // Example 3: Transform numbers to their squares using map()
+        // Step 3.1: Convert the list to a stream
+        // Step 3.2: Apply map() with lambda expression (n -> n * n) to square each number
+        // Step 3.3: Collect the transformed elements back into a List
+        List<Integer> squared = numbers.stream()
+                .map(n -> n * n)
+                .collect(Collectors.toList());
+        // Step 3.4: Print the result
+        System.out.println(squared);
+
     }
 }
