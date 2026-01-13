@@ -42,5 +42,17 @@ public class MapExample {
         // Step 3.4: Print the result
         System.out.println(squared);
 
+        // Example 4: Chain multiple map() operations
+        // Step 4.1: Convert the list to a stream
+        // Step 4.2: Apply first map() to convert each string to uppercase
+        // Step 4.3: Apply second map() to prepend "Hello " and append "!" to each string
+        // Step 4.4: Collect the final transformed elements back into a List
+        List<String> result = names.stream()
+                .map(String::toUpperCase)
+                .map(s -> "Hello " + s + "!")
+                .collect(Collectors.toList());
+        // Step 4.5: Print the result
+        System.out.println(result);
+
     }
 }
