@@ -19,5 +19,16 @@ public class MapExample {
         // Step 1.4: Print the result
         System.out.println(uppercase);
 
+        // Example 2: Transform strings to their lengths using map()
+        // Step 2.1: Convert the list to a stream
+        // Step 2.2: Apply map() with method reference String::length to get the length of each string
+        // Step 2.3: Collect the transformed elements (integers) back into a List
+        List<Integer> lengths = names.stream()
+                .map(String::length)
+                .collect(Collectors.toList());
+        // Step 2.4: Print the result
+        System.out.println(lengths);
+
+
     }
 }
