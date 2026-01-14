@@ -10,6 +10,14 @@ public class SortedExample {
         // Step 1: Create a list of integers to demonstrate sorting
         List<Integer> numbers = Arrays.asList(5, 3, 8, 1, 9, 2);
 
+        // Step 2: Natural sorting (ascending order)
+        // - Convert list to stream using stream()
+        // - Apply sorted() with no arguments for natural ordering (ascending)
+        // - Collect results back into a List using Collectors.toList()
+        List<Integer> sorted = numbers.stream()
+                .sorted()
+                .collect(Collectors.toList());
+        System.out.println(sorted);
 
     }
 }
