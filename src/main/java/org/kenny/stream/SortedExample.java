@@ -19,5 +19,14 @@ public class SortedExample {
                 .collect(Collectors.toList());
         System.out.println(sorted);
 
+        // Step 3: Reverse sorting (descending order)
+        // - Convert list to stream using stream()
+        // - Apply sorted() with Comparator.reverseOrder() to sort in descending order
+        // - Collect results back into a List using Collectors.toList()
+        List<Integer> reversed = numbers.stream()
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+        System.out.println(reversed);
+
     }
 }
