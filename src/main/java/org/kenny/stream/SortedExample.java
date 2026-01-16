@@ -28,5 +28,9 @@ public class SortedExample {
                 .collect(Collectors.toList());
         System.out.println(reversed);
 
+        // Step 4: Create a list of strings to demonstrate custom sorting
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
+
+
     }
 }
