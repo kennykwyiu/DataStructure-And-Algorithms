@@ -41,6 +41,17 @@ public class SortedExample {
                 .collect(Collectors.toList());
         System.out.println(byLength);
 
+        // Step 6: Custom sorting with lambda expression (reverse alphabetical)
+        // - Convert list to stream using stream()
+        // - Apply sorted() with a lambda comparator (s1, s2) -> s2.compareTo(s1)
+        //   This compares strings in reverse order (descending alphabetical)
+        //   Note: s2.compareTo(s1) reverses the natural order
+        // - Collect results back into a List using Collectors.toList()
+        List<String> custom = names.stream()
+                .sorted((s1, s2) -> s2.compareTo(s1))
+                .collect(Collectors.toList());
+        System.out.println(custom);
+
 
     }
 }
