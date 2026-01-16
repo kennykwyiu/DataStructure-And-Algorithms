@@ -31,6 +31,16 @@ public class SortedExample {
         // Step 4: Create a list of strings to demonstrate custom sorting
         List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
 
+        // Step 5: Sort strings by length (ascending)
+        // - Convert list to stream using stream()
+        // - Apply sorted() with Comparator.comparingInt(String::length)
+        //   This extracts the length of each string and compares them
+        // - Collect results back into a List using Collectors.toList()
+        List<String> byLength = names.stream()
+                .sorted(Comparator.comparingInt(String::length))
+                .collect(Collectors.toList());
+        System.out.println(byLength);
+
 
     }
 }
