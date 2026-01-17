@@ -34,5 +34,20 @@ public class LimitSkipExample {
                 .collect(Collectors.toList());
         System.out.println("After skipping first 5: " + afterSkip5);
 
+        // Step 4: Example 3 - Combining skip() and limit() for pagination
+        // This is a common pattern for implementing pagination in data processing
+        // - Convert the list to a stream using stream()
+        // - skip(3) skips the first 3 elements (elements 1, 2, 3)
+        // - limit(3) then takes only the next 3 elements from the remaining stream
+        // - collect(Collectors.toList()) converts the stream back to a List
+        // Result: [4, 5, 6] - page 2 with page size 3 (0-indexed: skip 3, take 3)
+        // This simulates: page 2 (0-indexed) with page size 3
+        List<Integer> page = numbers.stream()
+                .skip(3)
+                .limit(3)
+                .collect(Collectors.toList());
+        System.out.println("Page (skip 3, limit 3): " + page);
+
+
     }
 }
