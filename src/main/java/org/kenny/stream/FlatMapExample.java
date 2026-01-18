@@ -22,5 +22,20 @@ public class FlatMapExample {
         System.out.println(flatList);
 
 
+        // Example 2: Splitting sentences into individual words
+        // Input: ["Hello World", "Java Streams", "Lambda Expressions"]
+        // Output: ["Hello", "World", "Java", "Streams", "Lambda", "Expressions"]
+        // flatMap splits each sentence by spaces and flattens all words into one list
+        List<String> sentences = Arrays.asList(
+                "Hello World",
+                "Java Streams",
+                "Lambda Expressions"
+        );
+
+        List<String> words = sentences.stream()
+                .flatMap(s -> Arrays.stream(s.split(" "))) // Split each string by space and flatten
+                .collect(Collectors.toList());
+        System.out.println(words);
+
     }
 }
