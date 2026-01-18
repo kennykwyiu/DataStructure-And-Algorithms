@@ -37,5 +37,14 @@ public class FlatMapExample {
                 .collect(Collectors.toList());
         System.out.println(words);
 
+        // Example 3: Converting strings to individual characters
+        // Input: ["Alice", "Bob"]
+        // Output: ['A', 'l', 'i', 'c', 'e', 'B', 'o', 'b']
+        // flatMap converts each string to its character stream and flattens all characters
+        List<String> names = Arrays.asList("Alice", "Bob");
+        List<Character> chars = names.stream()
+                .flatMap(name -> name.chars().mapToObj(c -> (char) c)) // Convert string to char stream and flatten
+                .collect(Collectors.toList());
+        System.out.println(chars);
     }
 }
