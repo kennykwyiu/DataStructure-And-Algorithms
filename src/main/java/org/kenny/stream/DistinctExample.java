@@ -34,5 +34,15 @@ public class DistinctExample {
         // Step 10: Create a list with case-sensitive duplicates
         List<String> names = Arrays.asList("Alice", "alice", "BOB", "bob");
 
+        // Step 11: Convert to stream
+        // Step 12: Transform each string to uppercase before checking for duplicates
+        // Step 13: Apply distinct to remove duplicates (case-insensitive due to uppercase mapping)
+        // Step 14: Collect the distinct uppercase names into a list
+        List<String> distinctUpper = names.stream()
+                .map(String::toUpperCase)
+                .distinct()
+                .collect(Collectors.toList());
+
+
     }
 }
