@@ -31,5 +31,8 @@ public class DistinctExample {
         // Step 9: Print the result to verify unique words
         System.out.println(uniqueWords); // Output: [apple, banana, cherry]
 
+        // Step 10: Create a list with case-sensitive duplicates
+        List<String> names = Arrays.asList("Alice", "alice", "BOB", "bob");
+
     }
 }
