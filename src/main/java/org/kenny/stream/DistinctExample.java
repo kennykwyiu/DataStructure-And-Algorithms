@@ -22,5 +22,11 @@ public class DistinctExample {
         // Step 6: Create a list of strings with duplicate words
         List<String> words = Arrays.asList("apple", "banana", "apple", "cherry", "banana");
 
+        // Step 7: Convert to stream and apply distinct to remove duplicates
+        // Step 8: Collect unique strings into a new list
+        List<String> uniqueWords = words.stream()
+                .distinct()
+                .collect(Collectors.toList());
+
     }
 }
