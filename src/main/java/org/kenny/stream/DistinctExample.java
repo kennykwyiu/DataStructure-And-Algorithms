@@ -43,6 +43,7 @@ public class DistinctExample {
                 .distinct()
                 .collect(Collectors.toList());
 
-
+        // Step 15: Print the result to verify case-insensitive unique names
+        System.out.println(distinctUpper); // Output: [ALICE, BOB]
     }
 }
