@@ -19,5 +19,8 @@ public class DistinctExample {
         // Step 5: Print the result to verify unique integers
         System.out.println(unique); // Output: [1, 2, 3, 4, 5]
 
+        // Step 6: Create a list of strings with duplicate words
+        List<String> words = Arrays.asList("apple", "banana", "apple", "cherry", "banana");
+
     }
 }
