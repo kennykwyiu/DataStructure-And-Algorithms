@@ -28,5 +28,8 @@ public class DistinctExample {
                 .distinct()
                 .collect(Collectors.toList());
 
+        // Step 9: Print the result to verify unique words
+        System.out.println(uniqueWords); // Output: [apple, banana, cherry]
+
     }
 }
