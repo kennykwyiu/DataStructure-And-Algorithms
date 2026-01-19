@@ -16,5 +16,8 @@ public class DistinctExample {
                 .distinct()
                 .collect(Collectors.toList());
 
+        // Step 5: Print the result to verify unique integers
+        System.out.println(unique); // Output: [1, 2, 3, 4, 5]
+
     }
 }
