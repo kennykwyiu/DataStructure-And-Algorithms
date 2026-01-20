@@ -35,5 +35,7 @@ public class PeekExample {
                 .map(StringBuilder::toString)  // Step 9: Convert to String
                 .collect(Collectors.toList());  // Step 10: Collect into list
 
+        // Step 11: Print the result
+        System.out.println(strings); // [Hello!, World!]
     }
 }
