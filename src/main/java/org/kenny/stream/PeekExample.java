@@ -10,5 +10,14 @@ public class PeekExample {
         // Step 1: Create a list of numbers
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
+        // Step 2: Use peek() to debug - show original numbers
+        List<Integer> result = numbers.stream()
+            .peek(n -> System.out.println("Original: " + n))  // Debug: print each original number
+                .map(n -> n * 2)  // Step 3: Double each number
+                .peek(n -> System.out.println("After map: " + n))  // Debug: print after doubling
+                .filter(n -> n > 5)  // Step 4: Keep only numbers greater than 5
+                .peek(n -> System.out.println("After filter: " + n))  // Debug: print after filtering
+                .collect(Collectors.toList());  // Step 5: Collect results into a list
+
     }
 }
