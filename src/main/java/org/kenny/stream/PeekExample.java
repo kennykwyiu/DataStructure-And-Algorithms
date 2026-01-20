@@ -22,5 +22,12 @@ public class PeekExample {
         // Step 6: Print the final result
         System.out.println("Final result: " + result); // [6, 8, 10]
 
+        // Second example: Modify objects using peek()
+        // Step 7: Create list of StringBuilder objects
+        List<StringBuilder> builders = Arrays.asList(
+                new StringBuilder("Hello"),
+                new StringBuilder("World")
+        );
+
     }
 }
