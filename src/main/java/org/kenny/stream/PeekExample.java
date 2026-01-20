@@ -19,5 +19,8 @@ public class PeekExample {
                 .peek(n -> System.out.println("After filter: " + n))  // Debug: print after filtering
                 .collect(Collectors.toList());  // Step 5: Collect results into a list
 
+        // Step 6: Print the final result
+        System.out.println("Final result: " + result); // [6, 8, 10]
+
     }
 }
