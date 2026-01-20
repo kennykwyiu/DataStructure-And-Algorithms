@@ -29,5 +29,11 @@ public class PeekExample {
                 new StringBuilder("World")
         );
 
+        // Step 8: Use peek() to modify each StringBuilder by adding "!"
+        List<String> strings = builders.stream()
+            .peek(sb -> sb.append("!"))  // Modify: add "!" to each StringBuilder
+                .map(StringBuilder::toString)  // Step 9: Convert to String
+                .collect(Collectors.toList());  // Step 10: Collect into list
+
     }
 }
