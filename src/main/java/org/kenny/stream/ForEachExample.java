@@ -13,5 +13,11 @@ public class ForEachExample {
 
         names.parallelStream().forEachOrdered(System.out::println);
 
+        // Perform actions
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        numbers.forEach(number -> {
+            int squared = number * number;
+            System.out.println(number + " squared is " + squared);
+        });
     }
 }
