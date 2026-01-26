@@ -9,5 +9,7 @@ public class ForEachExample {
 
         names.forEach(System.out::println);
 
+        names.forEach(name -> System.out.println("Hello, "+name));
+
     }
 }
