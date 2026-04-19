@@ -16,4 +16,8 @@ public class NameSplitter {
         Character.UnicodeScript sc = Character.UnicodeScript.of(ch);
         return sc == Character.UnicodeScript.HAN;
     }
+
+    private static boolean isAsciiLetterOrDigit(char c) {
+        return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
+    }
 }
