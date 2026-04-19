@@ -16,4 +16,17 @@ public class NameSplitter {
         Character.UnicodeScript sc = Character.UnicodeScript.of(ch);
         return sc == Character.UnicodeScript.HAN;
     }
+
+    public static Parts splitEnglishChinese(String raw) {
+        if (raw == null) return new Parts("", "");
+
+        // Normalize weird spaces (e.g. non-breaking space)
+        String s = raw.replace('\u00A0', ' ').trim();
+        if (s.isEmpty()) return new Parts("", "");
+
+    }
+
+    private static boolean isAsciiLetterOrDigit(char c) {
+        return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
+    }
 }
