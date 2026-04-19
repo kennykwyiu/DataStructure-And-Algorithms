@@ -11,4 +11,9 @@ public class NameSplitter {
         }
     }
 
+    // Detect CJK (covers most Traditional/Simplified Chinese characters + common ranges)
+    public static boolean isCjk(char ch) {
+        Character.UnicodeScript sc = Character.UnicodeScript.of(ch);
+        return sc == Character.UnicodeScript.HAN;
+    }
 }
