@@ -24,6 +24,7 @@ public class NameSplitter {
 
         // Step 2) Normalize spaces (convert NBSP to normal space) and trim both ends.
         String s = raw.replace('\u00A0', ' ').trim();
+        // Step 3) If nothing remains after trimming, return empty result.
         if (s.isEmpty()) return new Parts("", "");
     }
 
