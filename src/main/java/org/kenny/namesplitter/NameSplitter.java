@@ -37,6 +37,11 @@ public class NameSplitter {
             }
         }
 
+        // Step 5) If no Han exists, treat the whole string as English.
+        if (firstHan == -1) {
+            return new Parts(s, "");
+        }
+
     }
 
     /** Fast ASCII-only check used by the brand-token heuristic. */
