@@ -1,6 +1,7 @@
 package org.kenny.namesplitter;
 
 public class NameSplitter {
+    /** Split result container: English part and Chinese part. */
     public static class Parts {
         public final String english;
         public final String chinese;
@@ -11,21 +12,21 @@ public class NameSplitter {
         }
     }
 
-    // Detect CJK (covers most Traditional/Simplified Chinese characters + common ranges)
+    /** Returns true when the character belongs to Han script (Chinese). */
     public static boolean isCjk(char ch) {
         Character.UnicodeScript sc = Character.UnicodeScript.of(ch);
         return sc == Character.UnicodeScript.HAN;
     }
 
     public static Parts splitEnglishChinese(String raw) {
+
         if (raw == null) return new Parts("", "");
 
-        // Normalize weird spaces (e.g. non-breaking space)
         String s = raw.replace('\u00A0', ' ').trim();
         if (s.isEmpty()) return new Parts("", "");
-
     }
 
+    /** Fast ASCII-only check used by the brand-token heuristic. */
     private static boolean isAsciiLetterOrDigit(char c) {
         return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
     }
