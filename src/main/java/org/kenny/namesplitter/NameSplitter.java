@@ -19,9 +19,10 @@ public class NameSplitter {
     }
 
     public static Parts splitEnglishChinese(String raw) {
-
+        // Step 1) Handle null safely.
         if (raw == null) return new Parts("", "");
 
+        // Step 2) Normalize spaces (convert NBSP to normal space) and trim both ends.
         String s = raw.replace('\u00A0', ' ').trim();
         if (s.isEmpty()) return new Parts("", "");
     }
