@@ -26,6 +26,17 @@ public class NameSplitter {
         String s = raw.replace('\u00A0', ' ').trim();
         // Step 3) If nothing remains after trimming, return empty result.
         if (s.isEmpty()) return new Parts("", "");
+
+        // Step 4) Find the first Chinese (Han) character position.
+        int firstHan = -1;
+        for (int i = 0; i < s.length(); i++) {
+            if (isCjk(s.charAt(i))) {
+                // Found first Han; use this as the default split point.
+                firstHan = i;
+                break;
+            }
+        }
+
     }
 
     /** Fast ASCII-only check used by the brand-token heuristic. */
