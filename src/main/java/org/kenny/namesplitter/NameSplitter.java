@@ -50,7 +50,12 @@ public class NameSplitter {
         int i = firstHan - 1;
         // Track whether we skipped spaces between Latin token and Han.
         boolean skippedWhitespaceBeforeLatin = false;
-        
+        // Step 6a) Skip spaces immediately before first Han (e.g. "Sme 發展").
+        while (i >= 0 && Character.isWhitespace(s.charAt(i))) {
+            i--;
+            skippedWhitespaceBeforeLatin = true;
+        }
+
 
     }
 
