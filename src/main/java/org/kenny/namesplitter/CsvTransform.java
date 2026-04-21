@@ -11,4 +11,9 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class CsvTransform {
+    public static void main(String[] args) throws Exception {
+        Path in = Paths.get("src/main/java/org/kenny/namesplitter/input_utf8.csv");
+        Path out = Paths.get("src/main/java/org/kenny/namesplitter/output.csv");
+
+    }
 }
