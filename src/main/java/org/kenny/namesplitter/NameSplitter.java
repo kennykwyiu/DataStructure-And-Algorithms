@@ -55,7 +55,28 @@ public class NameSplitter {
             i--;
             skippedWhitespaceBeforeLatin = true;
         }
-
+        // Step 6b) If the char before Han-side gap is ASCII letter/digit, collect that run.
+        if (i >= 0 && isAsciiLetterOrDigit(s.charAt(i))) {
+            // Move left across contiguous ASCII letters/digits.
+            while (i >= 0 && isAsciiLetterOrDigit(s.charAt(i))) {
+                i--;
+            }
+            // Candidate start for Chinese segment = start of that ASCII run.
+            int candidate = i + 1;
+            // Accept only if token boundary is start-of-string or whitespace.
+            boolean boundaryOk =
+                    candidate == 0 || Character.isWhitespace(s.charAt(candidate - 1));
+            // Step 6c) Guardrail:
+            // "A 中文" should stay English + Chinese, so don't pull from index 0 when there was a gap.
+            // But "3M有限公司" (no gap) is still allowed to start Chinese at index 0.
+            if (skippedWhitespaceBeforeLatin && candidate == 0) {
+                boundaryOk = false;
+            }
+            // Step 6d) If valid, shift Chinese start left to include Latin token.
+            if (candidate < firstHan && boundaryOk) {
+                chineseStart = candidate;
+            }
+        }
 
     }
 
