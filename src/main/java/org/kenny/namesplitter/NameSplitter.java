@@ -42,6 +42,16 @@ public class NameSplitter {
             return new Parts(s, "");
         }
 
+        // Step 6) Start with default Chinese start at first Han.
+        // Then try a heuristic: include a Latin/digit brand token before Han in Chinese.
+        // Example: "3M Co., Ltd. 3M有限公司" -> Chinese starts at second "3M".
+        int chineseStart = firstHan;
+        // Cursor used to walk backward from firstHan.
+        int i = firstHan - 1;
+        // Track whether we skipped spaces between Latin token and Han.
+        boolean skippedWhitespaceBeforeLatin = false;
+        
+
     }
 
     /** Fast ASCII-only check used by the brand-token heuristic. */
