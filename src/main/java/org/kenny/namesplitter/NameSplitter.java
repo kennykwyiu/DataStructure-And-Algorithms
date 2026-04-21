@@ -78,6 +78,10 @@ public class NameSplitter {
             }
         }
 
+        // Step 7) Split and trim both sides.
+        String english = s.substring(0, chineseStart).trim();
+        String chinese = s.substring(chineseStart).trim();
+        return new Parts(english, chinese);
     }
 
     /** Fast ASCII-only check used by the brand-token heuristic. */
