@@ -39,6 +39,20 @@ public class CsvTransform {
                      .build()
                      .print(writer)) {
             for (int i = start; i < lines.size(); i++) {
+                String value = lines.get(i);
+                // Ignore empty rows so output only contains meaningful records.
+                if (value.isBlank()) {
+                    continue;
+                }
+                // Lightweight diagnostics: show source row and first detected Han position.
+                System.out.println("RAW=" + value);
+                for (int j = 0; j < value.length(); j++) {
+                    char ch = value.charAt(j);
+                    if (NameSplitter.isCjk(ch)) {
+                        System.out.println("First CJK at " + j + " char=" + ch);
+                        break;
+                    }
+                }
             }
         }
     }
