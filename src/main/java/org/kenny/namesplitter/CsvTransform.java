@@ -53,6 +53,9 @@ public class CsvTransform {
                         break;
                     }
                 }
+                // Core transform: split one mixed-language name into two output columns.
+                NameSplitter.Parts p = NameSplitter.splitEnglishChinese(value);
+                printer.printRecord(p.english, p.chinese);
             }
         }
     }
