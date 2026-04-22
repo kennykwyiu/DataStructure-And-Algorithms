@@ -32,5 +32,14 @@ public class CsvTransform {
             }
         }
 
+        try (Writer writer = Files.newBufferedWriter(out, StandardCharsets.UTF_8);
+             CSVPrinter printer = CSVFormat.DEFAULT
+                     .builder()
+                     .setHeader("English", "Chinese")
+                     .build()
+                     .print(writer)) {
+            for (int i = start; i < lines.size(); i++) {
+            }
+        }
     }
 }
