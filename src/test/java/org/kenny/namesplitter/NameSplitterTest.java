@@ -12,4 +12,12 @@ class NameSplitterTest {
         Assertions.assertEquals(chinese, p.chinese, "chinese");
     }
 
+    @Test
+    void nullAndEmpty() {
+        // Guardrails: parser should be null-safe and trim whitespace-only inputs.
+        assertSplit(null, "", "");
+        assertSplit("", "", "");
+        assertSplit("   ", "", "");
+    }
+
 }
