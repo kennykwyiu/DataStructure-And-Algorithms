@@ -38,4 +38,10 @@ class NameSplitterTest {
         assertSplit("A\u00A0中文", "A", "中文");
     }
 
+    /** Latin + Han with no gap; candidate==0 is allowed when no whitespace was skipped. */
+    @Test
+    void latinTouchingHan_atStartOfString() {
+        assertSplit("3M有限公司", "", "3M有限公司");
+    }
+
 }
