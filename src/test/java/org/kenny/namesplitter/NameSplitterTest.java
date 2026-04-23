@@ -32,4 +32,10 @@ class NameSplitterTest {
         assertSplit("有限公司", "", "有限公司");
     }
 
+    @Test
+    void nbspNormalized() {
+        // CSV data can contain NBSP; split logic normalizes it like regular space.
+        assertSplit("A\u00A0中文", "A", "中文");
+    }
+
 }
