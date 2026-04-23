@@ -26,4 +26,10 @@ class NameSplitterTest {
         assertSplit("Acme Corp.", "Acme Corp.", "");
     }
 
+    @Test
+    void chineseOnly_startsWithHan() {
+        // Leading Han should route the full value to Chinese.
+        assertSplit("有限公司", "", "有限公司");
+    }
+
 }
