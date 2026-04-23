@@ -20,4 +20,10 @@ class NameSplitterTest {
         assertSplit("   ", "", "");
     }
 
+    @Test
+    void englishOnly_noHan() {
+        // No Han characters means everything stays on the English side.
+        assertSplit("Acme Corp.", "Acme Corp.", "");
+    }
+
 }
