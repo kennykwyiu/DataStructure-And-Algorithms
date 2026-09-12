@@ -7,7 +7,7 @@ public class Editor {
         return new EditorState(content);
     }
 
-    public void restoreState(EditorState state) {
+    public void restore(EditorState state) {
         content = state.getState();
     }
 
