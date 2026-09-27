@@ -1,4 +1,4 @@
-package org.kenny.designpattern.factory;
+package org.kenny.designpattern.factory.products.notification;
 
 public class EmailNotification implements Notification {
     @Override

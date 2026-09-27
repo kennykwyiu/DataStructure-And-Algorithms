@@ -1,4 +1,4 @@
-package org.kenny.designpattern.factory;
+package org.kenny.designpattern.factory.products.contact;
 
 public class EmailContact implements Contact {
     private final String email;
